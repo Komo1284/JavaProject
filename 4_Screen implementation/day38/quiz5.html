@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quiz5.html</title>
+
+    <style>
+        table{
+            border-collapse: collapse;
+        }
+        th, td{
+            /*border: 1px solid black;*/
+            padding: 5px 15px;
+        }
+        fieldset{
+            display: inline;
+        }
+    </style>
+</head>
+<body>
+    <h1>예약 정보</h1>
+    <hr>
+
+    <fieldset>
+        <LEgend>예약</LEgend>
+
+        <form>
+            <table>
+                <tr>
+                    <td><label for="nid">이름</label></td>
+                    <td><input name="name" id="nid" type="text" placeholder="이름 입력 필수*"></td>
+                </tr>
+                <tr>
+                    <td><label for="pid">휴대폰</label></td>
+                    <td><input name="phone" id="pid" type="number" placeholder="번호를 -없이 입력*"></td>
+                </tr>
+                <tr>
+                    <td><label for="eid">이메일</label></td>
+                    <td><input name="email" id="eid" type="email" placeholder="이메일 입력*"></td>
+                </tr>
+                <tr>
+                    <td><label for="did">날짜</label></td>
+                    <td><input name="date" id="did" type="date"></td>
+                </tr>
+                <tr>
+                    <td><label for="tid">시간</label></td>
+                    <td><input name="time" id="tid" type="time"></td>
+                </tr>
+                <tr>
+                    <td><label for="t_2id">날짜2</label></td>
+                    <td><input name="time2" id="t_2id" type="datetime-local"></td>
+                </tr>
+            </table>
+            
+            <br>
+            <button>예약하기</button>
+            <button type="reset">다시입력</button>
+        </form>
+    </fieldset>
+</body>
+</html>

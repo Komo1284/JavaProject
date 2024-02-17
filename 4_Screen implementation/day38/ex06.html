@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>input의 종류</h1>
+    <hr>
+
+    <form action="ex06_result">
+        <!-- 
+            name : 파라미터가 저장될 이름
+            type : input의 타입을 지정
+            placeholder : 입력이 없을 때 출력하는 구문
+            required : 필수로 입력해야 되는 구문
+        -->
+
+        <!-- text : 모든 데이터 입력 가능. 기본값-->
+        <p><input name="userid" type="text" placeholder="ID 입력" required></p>
+
+        <!-- password : text와 동일. 단, 가려준다-->
+        <p><input name="userpw" type="password" placeholder="PW 입력"></p>
+
+        <!-- email : 데이터에 @가 포함되는지 구분-->
+        <p><input name="email" type="email" placeholder="이메일"></p>
+
+        <!-- number : 숫자 데이터만 입력 가능-->
+        <p><input name="height" type="number" step="0.1" placeholder="신장"></p>
+
+        <!-- date : 날짜를 입력-->
+        <p>생년월일 : <input name="birth" type="date"></p>
+
+        <!-- color : 색상 정보를 16진수로 전송-->
+        <p><input name="color" type="color"></p>
+
+        <!-- range : 막대비의 수치로 데이터를 전송-->
+        <p><input name="range" type="range" min="1" max="3" step="1"></p>
+
+        <!-- file : 선택한 파일의 이름을 전송-->
+        <p><input name="upload" type="file"></p>
+
+        <!-- radio : 다중택일 선택지를 생성. 단, name이 같아야 한다-->
+        <p>성별 : 
+            <input name="gender" type="radio" value="man">남
+            <input name="gender" type="radio" value="woman">여
+            <input name="gender" type="radio" value="notting" checked>x
+        </p>
+
+        <!-- checkbox : 다중 선택지를 생성. 단, name이 같아야 한다-->
+        <p>취미 : 
+            <input name="hobby" type="checkbox" value="game">게임
+            <input name="hobby" type="checkbox" value="music">음악
+            <input name="hobby" type="checkbox" value="movie">영화
+            <input name="hobby" type="checkbox" value="book">독서
+        </p>
+
+        <!-- select : 선택지를 생성-->
+        <p> 전공 : 
+            <select name="major">
+                <!-- option value의 데이터가 전송되고-->
+                <!-- 생략시 option 사이의 element가 전송된다.-->
+                <option value="com">컴퓨터공학과</option>
+                <option>기계공학과</option>
+                <option>회계학과</option>
+                <option>경영학과</option>
+                <option>국어국문학과</option>
+        </select></p>
+
+        <p><textarea name="info" cols="30" rows="10" placeholder="자기소개"></textarea></p>
+
+        <button>전송</button>
+    </form>
+</body>
+</html>

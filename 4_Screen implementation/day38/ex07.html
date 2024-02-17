@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex07.html</title>
+    <style>
+        input {
+            width: 100%;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <h1>label</h1>
+    <hr>
+
+    <ul>
+        <li>입력 정보를 알려줄 땐 placeholder를 사용한다</li>
+        <li>또한, label로도 대체가 가능하다</li>
+    </ul>
+
+    <form>
+        <table border="1" cellspacing="0" cellpadding="10">
+            <tr>
+                <!-- for는 input의 id에 연결된다-->
+                <td><label for="nid">이름</label></td>
+                <td><input name="name" id="nid" type="text"></td>
+            </tr>
+            <tr>
+                <td><label for="aid">나이</label></td>
+                <td><input name="age" id="aid" type="number"></td>
+            </tr>
+            <tr>
+                <td><label for="bid">생년월일</label></td>
+                <td><input name="birth" id="bid" type="date"></td>
+            </tr>
+        </table>
+        
+
+        <button>전송</button>
+    </form>
+</body>
+</html>

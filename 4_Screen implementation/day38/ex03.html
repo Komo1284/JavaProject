@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex03.html</title>
+</head>
+<body>
+    <h1>table 태그</h1>
+    <hr>
+
+    <!--
+        table       표를 생성하는 태그
+        tr          표에서 한 줄(row)을 생성
+        td          실제 데이터가 채워진다
+        th          td와 동일. 단, 가운데 정렬 및 폰트가 굵게 표시
+    -->
+
+    <table border="1" cellspacing="0" cellpadding="10">
+        <tr>
+            <th>이름</th>
+            <th>나이</th>
+            <th>주소</th>
+        </tr>
+        <tr>
+            <td>홍길동</td>
+            <td>22</td>
+            <td>부산광역시 해운대구</td>
+        </tr>
+        <tr>
+            <!-- rowspan : 위/아래를 합친다-->
+            <td rowspan="2">김민수</td>
+            <td>33</td>
+            <td>서울특별시 종로구</td>
+        </tr>
+        <tr>
+            <!-- colspan : 좌/우를 합친다-->
+            <td colspan="2">010-1234-5678</td>
+        </tr>
+    </table>
+</body>
+</html>
