@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex07.html</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            margin: 10px;
+            padding: 10px 20px;
+        }
+        #content {
+            box-sizing: content-box;
+        }
+        #border {
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <h1>box의 크기</h1>
+    <hr>
+
+    <ol>
+        <li>content-box : content에만 width/height를 적용</li>
+        <li>border-box : border까지 width/height로 계산 적용</li>
+    </ol>
+
+    <p>※ 테두리까지 범위로 계산하는 것이 편하다</p>
+
+    <div id="content">Hello</div>
+    <div id="border">Hello</div>
+</body>
+</html>

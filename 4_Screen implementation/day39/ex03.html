@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex03.html</title>
+
+    <style>
+        /* HTML 파일에서 style 태그 안쪽을 '내부스타일'이라고 한다*/
+        ol li {
+            color: orange;
+        }
+       
+    </style>
+
+    <!-- 외부 스타일은 link 태그로 불러온다-->
+    <link rel="stylesheet" href="css/ex03.css" type="text/css">
+</head>
+<body>
+    <!-- ex02, ex03 사이에 css diner를 진행했음-->
+
+    <h1>CSS 종류</h1>
+    <hr>
+
+    <ol>
+        <li style="color:red; font-family: 궁서체;">인라인 스타일</li>
+        <li>내부 스타일</li>
+        <li>외부 스타일</li>
+    </ol>
+
+    <ul>
+        <li>재사용성 : 외부 > 내부 > 인라인</li>
+        <li>우선순위 : 인라인 > 내부 > 외부</li>
+    </ul>
+</body>
+</html>

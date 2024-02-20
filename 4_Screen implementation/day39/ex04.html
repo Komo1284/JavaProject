@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex04.html</title>
+</head>
+
+    <style>
+        div {
+            background-color: blue;
+            width: 100px;
+            height: 100px;
+        }
+        span {
+            background-color: aqua;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+<body>
+    <h1>태그의 box 모델</h1>
+    <hr>
+
+    <h4>HTML의 모든 태그는 네모(box)로 이루어진다</h4>
+
+    <ol>
+        <li>block : 한줄 전체를 차지</li>
+        <li>in-line : 한 줄에 여러개가 배치</li>
+    </ol>
+
+    <div>
+        <!-- 
+            - div는 아무런 효과 없는 단순한 block 태그
+            - 너비와 높이를 가질 수 있다
+        -->
+    </div>
+    
+    <hr>
+
+    <span>
+        <!-- 
+            - span은 아무런 효과가 없는 단순 in-line 
+            - 너비와 높이를 가질 수 없다
+            - 내부 요소의 크기나, 자식 태그 크기만큼 공간을 가진다
+        -->
+        Hello In-Line
+    </span>
+</body>
+</html>

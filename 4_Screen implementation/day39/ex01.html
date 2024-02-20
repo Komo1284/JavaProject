@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>ex01.html</title>
+
+    <style>
+        /* 여기는 CSS 주석 */
+        p {
+            color:brown
+        }
+
+        /* 전체 선택자 : 모든 태그에 적용 */
+        /* 좀 더 세부적인 선택자가 우선순위가 높다 */
+        * {
+            color: orange
+        }
+
+        /* 같은 선택자인 경우 같은 속성이면 아래것이 적용 */
+        p {
+            color: blueviolet;
+        }
+
+        /* 같은 선택자이지만 다른 속성이면 중첩으로 적용 */
+        p {
+            font-family: '궁서체';
+        }
+
+    </style>
+</head>
+<body>
+    <h1>CSS</h1>
+    <hr>
+
+    <p>Cascade Style Sheet</p>
+
+    <p>Cascade는 연쇄적이라는 의미로</p>
+
+    <p>스타일이 순차적으로 중첩되어 적용됨을 의미</p>
+
+</body>
+</html>
