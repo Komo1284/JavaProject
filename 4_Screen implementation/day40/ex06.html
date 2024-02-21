@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex06.html</title>
+
+    <style>
+        .figure {
+            list-style: square;
+            /* disc(기본), circle, square, none */
+        }
+        ol {
+            list-style: lower-alpha;
+            /* decimal(기본), lower-alpha, upper-alpha 등 */
+        }
+        .icon {
+            list-style-image: url('img/star.png');
+            /* 지정 이미지로도 적용 가능 */
+        }
+        .nopd {
+            list-style: none;
+            padding: 0;
+            /* ul, ol은 기본 좌측 40px padding이 적용되어 있다 */
+        }
+    </style>
+
+    <!-- ※ 탭 부분의 이미지를 변경 -->
+    <link rel="shortcut icon" type="image/x-icon" href="img/star.png">
+
+</head>
+<body>
+    <h1>list 스타일</h1>
+    <hr>
+
+    <ul class="figure">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JS</li>
+    </ul>
+
+    <ol>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JS</li>
+    </ol>
+
+    <ul class="icon">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JS</li>
+    </ul>
+
+    <ul class="nopd">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JS</li>
+    </ul>
+</body>
+</html>

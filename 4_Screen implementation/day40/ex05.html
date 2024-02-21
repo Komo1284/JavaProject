@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex05.html</title>
+
+    <style>
+        .container {
+            border: 1px solid black;
+            width: 500px;
+            height: 500px;
+
+            display: flex;                  /* 현재 태그를 flex 컨테이너로 등록 */
+            justify-content: space-evenly;  /* 주축을 기준으로 item을 배치 */
+            align-items: center;            /* 역축을 기준으로 item을 배치*/
+
+            flex-wrap: wrap;                /* 축의 공간을 모두 사용시 다음 줄로 이동*/
+        }
+        #col {
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: end;
+        }
+
+        .item{
+            padding: 10px;
+            width: 70px;
+            height: 70px;
+        }
+        .item:nth-child(2n) {
+            background-color: yellow;
+        }
+        .item:nth-child(2n +1){
+            background-color: pink;
+        }
+
+       
+    </style>
+
+</head>
+<body>
+    <h1>flex를 활용한 레이아웃 설정</h1>
+    <hr>
+
+    <h3>주축 : row</h3>
+
+    <div class="container">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+        <div class="item">6</div>
+        <div class="item">7</div>
+    </div>
+
+    <h3>주축 : column</h3>
+
+    <div class="container" id="col">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+        <div class="item">6</div>
+        <div class="item">7</div>
+    </div>
+</body>
+</html>

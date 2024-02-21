@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex07.html</title>
+
+    <style>
+        .color {
+            border: 5px solid black;
+            height: 400px;      /* height가 없으면 자식 요소 높이만큼 */
+            width: 400px;       /* 자식요소가 지정 height보다 크면 넘침*/
+            padding: 20px;
+
+            background-color: gold;     /* 배경색 */
+            color: white;               /* 폰트색 */
+            background-clip: content-box; /* 배경을 칠할 범위 */
+
+        }
+        .img {
+            border: 5px solid black;
+            height: 800px;
+            width: 800px;
+
+            background-image: url('img/banner.png');
+            background-size: cover;
+            /* cover : 이미지가 해당 공간을 덮음. 넘치면 짤림*/
+
+            background-size: contain;
+            /* contain : 요소안에 꽉차게. 남는 너비 높이가 발생할 수 있다 */
+
+            background-repeat: no-repeat;
+            /* repeat(기본), no-repeat */
+        }
+    </style>
+
+</head>
+<body>
+    <h1>배경 속성</h1>
+    <hr>
+
+    <div class="color">
+        <h3>Hello CSS</h3>
+
+        <p>Welcom to HTML</p>
+    </div>
+
+    <div class="img">
+
+    </div>
+</body>
+</html>
