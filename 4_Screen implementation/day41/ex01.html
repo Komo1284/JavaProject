@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex01.html</title>
+
+    <style>
+        a {
+            color: black;
+            text-decoration: none;
+        }
+        a:hover {   /* a태그에 마우스를 올리면 적용 */
+            text-decoration: underline;
+        }
+        a:link {    /* 방문한적 없는 링크 */
+            color: yellowgreen;
+        }
+        a:active {  /* 링크를 클릭을 꾹 누르고 있는 동안 */
+            color: violet;
+        }
+        a:visited { /* 방문한적 있는 링크 */
+            color: crimson;
+        }
+        input:focus {   /* 입력 가능한 태그에 커서가 삽입된 경우 */
+            background-color: rgba(128, 128, 128, 0.315);
+        }
+        input[type] {
+            border-radius: 10px;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>가상 선택자</h1>
+    <hr>
+
+    <h4>특정 이벤트일때 적용되는 선택지</h4>
+
+    <p><a href="https://www.naver.com/">네이버</a></p>
+
+    <p><input type="text" placeholder="ID"></p>
+    
+    <p><input type="password" placeholder="PW"></p>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quiz1.html</title>
+
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 5px 15px;
+        }
+        table tr:nth-child(1), table tr:nth-last-child(1) {
+            background-color: rgba(128, 128, 128, 0.349);
+        }
+        table tr:nth-child(2n + 3):hover {
+            background-color: rgba(128, 128, 128, 0.349);
+        }
+        table tr:nth-child(2n + 2):hover {
+            background-color: black;
+            color: white;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>가상 선택자2</h1>
+    <hr>
+
+    <table >
+        <tr>
+            <th>학번</th>
+            <th>이름</th>
+            <th>성적</th>
+        </tr>
+        <tr>
+            <td>20230101</td>
+            <td>홍길동</td>
+            <td>87</td>
+        </tr>
+        <tr>
+            <td>20230102</td>
+            <td>박찬호</td>
+            <td>73</td>
+        </tr>
+        <tr>
+            <td>20230103</td>
+            <td>고은진</td>
+            <td>91</td>
+        </tr>
+        <tr>
+            <td>20230104</td>
+            <td>이지수</td>
+            <td>68</td>
+        </tr>
+        <tr>
+            <th>합계</th>
+            <th></th>
+            <th>319</th>
+        </tr>
+    </table>
+</body>
+</html>

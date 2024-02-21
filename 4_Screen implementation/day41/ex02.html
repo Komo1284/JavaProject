@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex02.html</title>
+
+    <style>
+        div {
+            background-color: darkseagreen;
+            width: 100px;
+            height: 100px;
+            margin: 10px 0;
+        }
+
+        .move > div:nth-child(1) {
+            transform: translate(150px, 0);
+        }
+        .move > div:nth-child(2) {
+            transform: translate(0, -50px);
+        }
+        .move > div:nth-child(3) {
+            transform: translate(100px, 50px);
+        }
+        .size > div:nth-child(1) {
+            transform: scale(0.5, 1);
+        }
+        .size > div:nth-child(2) {
+            transform: scale(1, 0.5);
+        }
+        .size > div:nth-child(3) {
+            transform: scale(0.5, 0.5);
+        }
+        .rotate > div:nth-child(1) {
+            transform: rotate(45deg)
+        }
+        .rotate > div:nth-child(2) {
+            transform: rotate(-90deg)
+        }
+    </style>
+</head>
+<body>
+    <!-- quiz2.html 후 진행했음 -->
+
+    <h1>CSS 애니메이션</h1>
+    <hr>
+
+    <h4>원래 JS로 처리하던 작업이었지만 CSS3부터 자체 지원</h4>
+
+    <section>
+        <div>원본</div>
+    </section>
+
+    <section class="move">
+        <div>이동1 (x)</div>
+        <div>이동2 (y)</div>
+        <div>이동3 (x,y)</div>
+    </section>
+    <section class="size">
+        <div>크기1 (x)</div>
+        <div>크기2 (y)</div>
+        <div>크기3 (x,y)</div>
+    </section>
+    <section class="rotate">
+        <div>회전1</div>
+        <div>회전2</div>
+    </section>
+</body>
+</html>
