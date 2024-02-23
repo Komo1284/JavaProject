@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex11.html</title>
+</head>
+<body>
+    <h1>JS 자료형</h1>
+    <hr>
+
+    <h4>종류</h4>
+
+    <ul>
+        <li>number : 숫자 (정수, 실수)</li>
+        <li>string : 문자열</li>
+        <li>boolean : 논리</li>
+        <li>undefined : 변수 선언 후 초기화 하지 않은 경우</li>
+        <li>object : 객체</li>
+    </ul>
+
+    <h4>결과</h4>
+
+    <ul></ul>
+
+    <script>
+        var num = 10;
+        var str = '10';
+        var bol = true;
+        var und;
+        var nul = null;
+
+        var result = 
+            '<li>num 결과 : ' + typeof num + '</li>' +
+            '<li>str 결과 : ' + typeof str + '</li>' +
+            '<li>bol 결과 : ' + typeof bol + '</li>' +
+            '<li>und 결과 : ' + typeof und + '</li>' +
+            '<li>nul 결과 : ' + typeof nul + '</li>';
+        
+        document.getElementsByTagName('ul')[1].innerHTML = result
+    </script>
+</body>
+</html>

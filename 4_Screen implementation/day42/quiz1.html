@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quiz1.html</title>
+</head>
+<body>
+    <h1>Quiz1</h1>
+    <hr>
+
+    <h4>사용자에게 국 영 수 점수를 입력 받아서 합계/평균을 출력</h4>
+
+    <p></p>
+
+    <script>
+        var kor = prompt('국어점수를 입력하세요');
+        var eng = prompt('영어점수를 입력하세요');
+        var mat = prompt('수학점수를 입력하세요');
+
+        var sum = Number(kor) + Number(eng) + Number(mat);
+        var avg = (sum/3).toFixed(2);
+
+        var result = '합계 : ' + sum + ', 평균 : ' + avg
+        document.getElementsByTagName('p')[0].innerHTML = result
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex09.html</title>
+</head>
+<body>
+    <h1>페이지에 출력</h1>
+    <hr>
+
+    <h4>지정 태그에 원하는 데이터를 출력</h4>
+
+    <p>HTML</p>     <!-- [0]-->
+
+    <p>CSS</p>      <!-- [1]-->
+
+    <p></p>         <!-- [2]-->
+
+    <h4>여기를 'JavaScript'라고 바꿔보세요</h4>
+
+    <script>
+        // 아래는 DOM 이라는 JS 객체로 후반부에 배우는 부분이므로 지금은 참고만
+        document.getElementsByTagName('p')[0].innerHTML = 'Hyper Text'
+        document.getElementsByTagName('p')[1].innerHTML = 'Cascade'
+        document.getElementsByTagName('p')[1].style.color = 'red'
+
+        document.getElementsByTagName('p')[2].innerHTML
+            = '<a href="https://www.naver.com/">네이버</a>';
+
+        document.getElementsByTagName('h4')[1].innerHTML = 'JavaScript'
+    </script>
+</body>
+</html>

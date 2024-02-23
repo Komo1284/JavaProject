@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex06.html</title>
+    <style>
+        .container {
+            width: 400px;
+            overflow: hidden;
+        }
+        .slider {
+            display: flex;
+            animation: slide 5s ease infinite;
+        }
+        .container img {
+            width: 400px;
+        }
+        .slider > div {
+            width: 400px;
+            height: 200px;
+        }
+        .slider > div:nth-child(1) {
+            background-image: url(img/first.jpg);
+        }
+        .slider > div:nth-child(2) {
+            background-image: url(img/second.jpg);
+        }
+        .slider > div:nth-child(3) {
+            background-image: url(img/third.jpg);
+        }
+        @keyframes slide {
+            33% {
+                transform: translate(-400px);
+            }
+            66% {
+                transform: translate(-800px);
+            }
+            99% {
+                transform: translate(0px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>이미지 슬라이드</h1>
+    <hr>
+
+    <div class="container">     <!-- 넘치는 부분을 가려줄 태그-->
+        <div class="slider">                   <!-- 실제로 이미지를 움질일 태그-->
+            <div><img src="img/first.jpg"></div>
+            <div><img src="img/second.jpg"></div>
+            <div><img src="img/third.jpg"></div>
+        </div>
+    </div>
+</body>
+</html>

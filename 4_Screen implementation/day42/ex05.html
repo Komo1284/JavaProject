@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex05.html</title>
+    <style>
+        div {
+            width: 50px;
+            height: 50px;
+            background-color: aqua;
+
+            animation: test 1s linear infinite;
+            /* 애니메이션 이름, 속도, 가속도, 반복횟수 */
+        }
+
+        @keyframes test {   /* 애니메이션 이름 */
+            100% {           /* n% : 애니메이션 실행시간 백분율 */
+                transform: rotate(360deg);
+            }
+            
+        }
+        img {
+            animation: hos 0.5s linear infinite;
+        }
+        @keyframes hos {
+            100%{
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>상시 애니메이션</h1>
+    <hr>
+
+    <div></div>
+    <hr>
+
+    <img src="img/hos.png" alt="">
+</body>
+</html>

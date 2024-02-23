@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex03.html</title>
+
+    <style>
+        .container > div {
+            width: 50px;
+            height: 50px;
+            margin: 10px 0;
+            background-color: hotpink;
+        }
+        input:checked ~ .container > div {
+            width: 100%;
+            background-color: red;
+            border-radius: 30px;
+        }
+        .all {
+            transition: all 5s;
+        }
+        .sub {
+            transition: width 5s;
+        }
+        .noDel {
+            transition: all 5s 2s;
+            /* 이벤트 발생 후 2초 뒤 실행 */
+        }
+        .linear {
+            transition: all 5s linear;
+        }
+        .ease {
+            transition: all 5s linear;
+        }
+        .ease-in {
+            transition: all 5s ease;
+        }
+        .ease-out {
+            transition: all 5s ease-in;
+        }
+        .ease-in-out {
+            transition: all 5s ease-in-out;
+        }
+        .start {
+            transition: all 5s steps(5, start)
+        }
+        .end {
+            transition: all 5s steps(5, end)
+        }
+    </style>
+
+</head>
+<body>
+    <h1>Transition</h1>
+    <hr>
+
+    <input type="checkbox">클릭시 실행
+
+    <h4>1. property</h4>
+
+    <div class="container">
+        <div class="all"></div>
+        <div class="sub"></div>
+    </div>
+
+    <h4>2. delay</h4>
+
+    <div class="container">
+        <div class="all"></div>
+        <div class="noDel"></div>
+    </div>
+
+    <h4>3. timming</h4>
+
+    <div class="container">
+        <div class="linear"></div>
+        <div class="ease"></div>
+        <div class="ease-in"></div>
+        <div class="ease-out"></div>
+        <div class="ease-in-out"></div>
+        <div class="start"></div>
+        <div class="end"></div>
+    </div>
+</body>
+</html>

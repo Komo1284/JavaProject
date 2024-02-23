@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex01.html</title>
+
+    <style>
+        .container > div {
+            width: 50px;
+            height: 50px;
+            margin: 10px 0;
+            background-color: yellowgreen;
+        }
+        .container > div:nth-child(1):hover {
+            transform: translate(100px, 50px);
+            transition: all 2s;
+        }
+        .container > div:nth-child(2):hover {
+            transform: scale(2, 2);
+            transition: all 5s;
+        }
+        .container > div:nth-child(3):hover {
+            transform: rotate(360deg);
+            transition: all 5s;
+        }
+        .container > div:nth-child(4):hover {
+            transform: skew(50deg, 20deg);
+            transition: all 5s;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>Transition</h1>
+    <hr>
+
+    <ul>
+        <li>애니메이션을 자연스럽게 실행하는 속성</li>
+        <li>특정 이벤트가 있어야만 적용된다</li>
+    </ul>
+
+    <div class="container">
+        <div>이동</div>
+        <div>확대</div>
+        <div>회전</div>
+        <div>왜곡</div>
+    </div>
+</body>
+</html>

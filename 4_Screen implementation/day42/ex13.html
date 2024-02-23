@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex13.html</title>
+</head>
+<body>
+    <h1>JS 입력</h1>
+    <hr>
+
+    <ul>
+        <li>prompt() : 사용자가 입력한 데이터를 문자열로 변환</li>
+        <li>confirm() : 확인/취소 입력문. true/false를 반환</li>
+    </ul>
+
+    <script>
+        var con = confirm('동의 하시겠습니까?');
+        var prm = prompt('숫자를 입력하세요');
+
+        // 입력 후 출력 데이터와 타입을 확인해 보세요
+
+        console.log('con = ' + con);
+        console.log('con 타입 : ' + typeof con);
+
+        console.log('prm = ' + prm);
+        console.log('prm 타입 : ' + typeof prm);
+    </script>
+</body>
+</html>
