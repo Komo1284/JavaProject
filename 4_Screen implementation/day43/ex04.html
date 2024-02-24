@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex04.html</title>
+</head>
+<body>
+    <h1>JS 비교 연산자</h1>
+    <hr>
+
+    <ul></ul>
+
+    <script>
+        var n1 = 10 > 10;
+        var n2 = 10 >= 10;
+        var n3 = 10 < 10;
+        var n4 = 10 <= 10;
+        var n5 = 10 == '10';    // ==은 타입이 달라도 값이 같으면 참
+        var n6 = 10 != 10;
+
+        var n7 = 10 === '10';   // ===은 타입도 일치하는지 확인
+        var n8 = 10 !== '10';
+
+        var result = 
+            `<li>10 > 10 결과 : ${n1}</li>` + 
+            `<li>10 >= 10 결과 : ${n2}</li>` + 
+            `<li>10 < 10 결과 : ${n3}</li>` + 
+            `<li>10 <= 10 결과 : ${n4}</li>` + 
+            `<li>10 == 10 결과 : ${n5}</li>` + 
+            `<li>10 != 10 결과 : ${n6}</li>` + 
+            `<li>10 === 10 결과 : ${n7}</li>` + 
+            `<li>10 !=== 10 결과 : ${n8}</li>`;
+
+        document.getElementsByTagName('ul')[0].innerHTML = result;
+    </script>
+    
+</body>
+</html>

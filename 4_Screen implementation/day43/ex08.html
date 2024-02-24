@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex08.html</title>
+</head>
+<body>
+    <h1>제어문</h1>
+    <hr>
+
+    <p></p>
+
+    <script>
+        const age = 19;     // const는 상수 공간을 의미하는 키워드
+        let msg;
+
+        // age = 20;        // 상수 공간은 값의 변경이 불가능하다
+
+        if (age >= 19) {
+            msg = '성인';
+        }
+        else if (age >= 16) {
+            msg = '고등학생';
+        }
+        else if (age >= 13) {
+            msg = '중학생';
+        }
+        else {
+            msg = '초등학생 이하';
+        }
+
+        document.getElementsByTagName('p')[0].innerHTML = msg;
+
+    </script>
+    
+</body>
+</html>

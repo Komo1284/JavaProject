@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex09.html</title>
+</head>
+<body>
+    <h1>반복문 while</h1>
+    <hr>
+
+    <ul></ul>
+
+    <script>
+        let i = 1;
+        let msg = '';
+
+        while (i <= 5) {
+            msg += `<li>${i} : Hello Script!!!</li>`;
+            i++;
+        }
+
+        document.getElementsByTagName('ul')[0].innerHTML = msg;
+    </script>
+    
+</body>
+</html>

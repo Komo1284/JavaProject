@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex06.html</title>
+</head>
+<body>
+    <h1>JS 조건 연산자</h1>
+    <hr>
+
+    <ul></ul>
+
+    <script>
+        var n1 = (10 % 2 == 0) ? '짝수' : '홀수';
+        var n2 = (11 % 2 == 0) ? '짝수' : '홀수';
+
+        var result = 
+                `<li>10은 ${n1}</li>` +
+                `<li>11은 ${n2}</li>`;
+
+        document.getElementsByTagName('ul')[0].innerHTML = result;
+    </script>
+    
+</body>
+</html>

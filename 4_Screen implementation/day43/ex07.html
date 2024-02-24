@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex07.html</title>
+</head>
+<body>
+    <h1>제어문</h1>
+    <hr>
+
+    <ol>
+        <li>조건문 : if</li>
+        <li>반복문 : while, for</li>
+        <li>보조 제어문 : break, continue</li>
+    </ol>
+
+    <p></p>
+
+    <script>
+        var age = 19;       // var는 전역 변수를 선언하는 키워드
+
+        if (age >= 19) {
+            var result = '성인';
+        }
+        else {
+            var result = '미성년자';
+        }
+
+        document.getElementsByTagName('p')[0].innerHTML = result;
+    </script>
+    
+</body>
+</html>

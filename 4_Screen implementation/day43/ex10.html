@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex10.html</title>
+</head>
+<body>
+    <h1>반복문 for</h1>
+    <hr>
+
+    <ul></ul>
+
+    <script>
+        let msg = '';
+
+        for (let i = 5; i >= 1; i--) {
+            msg += `<li>${i} : Hello JS</li>`;
+        }
+        
+        document.getElementsByTagName('ul')[0].innerHTML = msg;
+    </script>
+</body>
+</html>

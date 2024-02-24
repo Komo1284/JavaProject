@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex05.html</title>
+</head>
+<body>
+    <h1>JS 논리 연산자</h1>
+    <hr>
+
+    <ul></ul>
+
+    <script>
+        var n1 = true && true;
+        var n2 = false || false;
+        var n3 = !true;
+
+        var result = 
+                `<li>true and true : ${n1}</li>` +
+                `<li>false or false : ${n2}</li>` +
+                `<li>not true : ${n3}</li>`;
+
+        document.getElementsByTagName('ul')[0].innerHTML = result;
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex11.html</title>
+</head>
+<body>
+    <h1>JS 중첩 반복</h1>
+    <hr>
+
+    <div></div>
+
+    <script>
+        let msg = '';
+
+        for (let i = 1; i <= 3; i++) {
+            msg += `<p>${i} : `;
+
+            for (let j = 1; j <= 5; j++) {
+                msg += j + ' ';
+            }
+            msg += '</p>';
+        }
+
+        document.getElementsByTagName('div')[0].innerHTML = msg;
+    </script>
+</body>
+</html>

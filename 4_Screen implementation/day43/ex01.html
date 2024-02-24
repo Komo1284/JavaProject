@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex01.html</title>
+</head>
+<body>
+    <h1>JS 산술 연산자</h1>
+    <hr>
+
+    <ul></ul>
+
+    <script name="sadfhsa">
+        var n1 = 10 + 3;
+        var n2 = 10 - 3;
+        var n3 = 10 * 2;
+        var n4 = 10 / 3;    // JS의 /는 바로 실수로 구해진다 (몫이 아님)
+        var n5 = 10 % 3;
+        var n6 = parseInt(10 / 3);
+        var n7 = Math.round(11/3);
+
+        var result = 
+            `<li>10 + 3 = ${n1}</li>` +
+            `<li>10 - 3 = ${n2}</li>` + 
+            `<li>10 * 2 = ${n3}</li>` +
+            `<li>10 / 3 = ${n4}</li>` + 
+            `<li>10 % 3 = ${n5}</li>` +
+            `<li>몫 = ${n6}</li>` + 
+            `<li>11/3 반올림 = ${n7}</li>`;
+
+        document.getElementsByTagName('ul')[0].innerHTML = result;
+    </script>
+</body>
+</html>

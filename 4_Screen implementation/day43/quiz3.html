@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quiz3.html</title>
+    <style>
+        table{
+            border-collapse: collapse;
+        }
+        th,td {
+            border: 1px solid black;
+            padding: 5px 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Quiz3</h1>
+    <hr>
+
+    <h4>테이블 형태로 입력한 구구단을 모두 출력</h4>
+
+    <table></table>
+
+    <script>
+        var num = Number(prompt('구구단 단수를 입력하세요'))
+        var msg = ''
+        
+        for (let i = 1; i < 10; i++) {
+            msg += `<tr><th>${num} x ${i}</th><th>${num*i}</th></tr>`;
+        }
+
+        document.getElementsByTagName('table')[0].innerHTML = msg;
+    </script>
+</body>
+</html>

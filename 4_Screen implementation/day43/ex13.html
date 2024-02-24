@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex13.html</title>
+</head>
+<body>
+    <h1>JS 함수의 매개변수</h1>
+    <hr>
+
+    <div></div>
+
+    <script>
+        // JS의 매개변수에는 변수 키워드(var,let)를 작성하지 않는다.
+        function hello(n) {
+            let msg = '<ul>';
+            
+            for (let i = 1; i <= n; i++) {
+                msg += `<li>${i} : Hello World!!!</li>`;
+            }
+            msg += '</ul>'
+
+            document.getElementsByTagName('div')[0].innerHTML += msg;
+        }
+
+        hello(3);
+
+        hello(7);
+    </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quiz2.html</title>
+</head>
+<body>
+    <h1>Quiz2</h1>
+    <hr>
+
+    <h4>국 영 수 합계/평균을 출력 후 등급 컷 출력</h4>
+    <p>평균의 소수점은 2자리까지 제한</p>
+
+    <ol>
+        <li>100 ~ 90 : A</li>
+        <li>89 ~ 80 : B</li>
+        <li>79 ~ 70 : C</li>
+        <li>69 ~ 60 : D</li>
+        <li>59 ~ 0 : F</li>
+    </ol>
+
+    <ul></ul>
+
+    <script>
+        var kor = Number(prompt('국어점수'))
+        var eng = Number(prompt('영어점수'))
+        var mat = Number(prompt('수학점수'))
+        var sum = kor + eng + mat;
+        var avg = (sum/3).toFixed(2);
+        var rank = 'F';
+
+        if (avg >= 90) {
+            rank = 'A';
+        }
+        else if (avg >= 80) {
+            rank = 'B';
+        }
+        else if (avg >= 70) {
+            rank = 'C'; 
+        }
+        else if (avg >= 60) {
+            rank = 'D';
+        }
+        
+        var result = 
+            `<li>국어 : ${kor}</li>` +
+            `<li>영어 : ${eng}</li>` +
+            `<li>수학 : ${mat}</li>` +
+            `<li>합계 : ${sum}</li>` +
+            `<li>평균 : ${avg}</li>` +
+            `<li>등급 : ${rank}</li>`;
+
+        document.getElementsByTagName('ul')[0].innerHTML = result;
+    </script>
+</body>
+</html>

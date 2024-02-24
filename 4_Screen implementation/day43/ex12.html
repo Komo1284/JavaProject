@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex12.html</title>
+</head>
+<body>
+    <h1>JS 함수</h1>
+    <hr>
+
+    <ul>
+        <li>변수는 데이터를 저장</li>
+        <li>함수는 일정 길이의 코드를 저장</li>
+        <li>저장은 재사용하기 위해서 한다</li>
+    </ul>
+
+    <button onclick="hello();">호출</button>
+
+    <div></div>
+
+    <script>
+        function hello() {
+            let msg = '<ul>';
+                
+            for (let i = 1; i <= 5; i++) {
+                msg += `<li>${i} : Hello World!!!</li>`;
+            }
+            msg += '</ul>';
+            document.getElementsByTagName('div')[0].innerHTML += msg;
+        }
+
+        hello();    // 함수 호출 : 선언된 함수를 실행
+        hello();    // 함수 재사용 : 선언된 함수는 몇번이건 사용 가능
+    </script>
+</body>
+</html>

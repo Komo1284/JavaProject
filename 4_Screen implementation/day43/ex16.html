@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex16.html</title>
+
+    <style>
+        table {
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 5px 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>이벤트(event)</h1>
+    <hr>
+
+    <ul>
+        <li>웹 브라우저에서 발생하는 어떠한 행위</li>
+        <li>JS는 이러한 이벤트를 처리하기 위한 언어</li>
+    </ul>
+
+    <table>
+        <caption>1. 마우스 이벤트</caption>
+
+        <thead>
+            <tr>
+                <th>속성</th>
+                <th>설명</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>click</td>
+                <td>요소를 클릭시 발생하는 이벤트</td>
+            </tr>
+            <tr>
+                <td>dbclick</td>
+                <td>요소를 더블 클릭시 발생</td>
+            </tr>
+            <tr>
+                <td>mousedown</td>
+                <td>요소를 누르는 동안</td>
+            </tr>
+            <tr>
+                <td>mouseover</td>
+                <td>요소 위로 마우스가 옮겨질 때</td>
+            </tr>
+            <tr>
+                <td>mouseout</td>
+                <td>요소 밖으로 마우스가 벗어날 때</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table>
+        <caption>2. 키보드 이벤트</caption>
+
+        <thead>
+            <tr>
+                <th>속성</th>
+                <th>설명</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>keypress</td>
+                <td>키보드 키를 눌렀을 때</td>
+            </tr>
+            <tr>
+                <td>keydown</td>
+                <td>키를 계속 누르는 동안</td>
+            </tr>
+            <tr>
+                <td>keyup</td>
+                <td>누르던 키를 땔 때</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table>
+        <caption>3. 문서 이벤트</caption>
+
+        <thead>
+            <tr>
+                <th>속성</th>
+                <th>설명</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>abort</td>
+                <td>페이지가 완전히 로딩되기 전 취소 했을 때</td>
+            </tr>
+            <tr>
+                <td>error</td>
+                <td>페이지가 제대로 로딩되지 않은 경우</td>
+            </tr>
+            <tr>
+                <td>load</td>
+                <td>페이지 로딩이 완전히 끝난 경우</td>
+            </tr>
+            <tr>
+                <td>resize</td>
+                <td>페이지 화면 크기가 변경시</td>
+            </tr>
+            <tr>
+                <td>scroll</td>
+                <td>페이지가 스크롤될 때</td>
+            </tr>
+            <tr>
+                <td>unload</td>
+                <td>페이지를 벗어날 대</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table>
+        <caption>4. 폼 이벤트</caption>
+
+        <thead>
+            <tr>
+                <th>속성</th>
+                <th>설명</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>blur</td>
+                <td>폼 요소에서 커서가 빠져 나올 때</td>
+            </tr>
+            <tr>
+                <td>change</td>
+                <td>체크 상태가 변경된 경우</td>
+            </tr>
+            <tr>
+                <td>focus</td>
+                <td>폼 요소에 커서가 들어왔을 때</td>
+            </tr>
+            <tr>
+                <td>reset</td>
+                <td>폼이 다시 시작될 때</td>
+            </tr>
+            <tr>
+                <td>submit</td>
+                <td>폼 데이터가 제출될 때</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

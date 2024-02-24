@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quiz4.html</title>
+    <style>
+        table {
+            border: 1px solid black;
+            display: inline-block;
+            margin: 10px;
+        }
+        th {
+            padding: 20px;
+        }
+        td {
+            padding: 5px 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>구구단 표</h1>
+    <hr>
+
+    <main></main>
+
+
+    <script>
+        var msg = '';
+        for (let i = 2; i < 10; i++) {
+            for (let j = 1; j < 10; j++){
+                if(j == 1){
+                    msg += `<table><tr><th>${i}단</th></tr>`;
+                }
+                msg += `<tr><td>${i} x ${j} = ${i*j}</td></tr>`;
+                if(j == 9) {
+                    msg += '</table>'
+                }
+            }
+            
+        }
+        document.getElementsByTagName('main')[0].innerHTML = msg;
+    </script>
+         
+
+    
+    
+
+
+</body>
+</html>

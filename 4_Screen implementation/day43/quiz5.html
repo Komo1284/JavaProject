@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quiz5.html</title>
+</head>
+<body>
+    <h1>Quiz5</h1>
+    <hr>
+
+    <h4>1. 절대값을 반환하는 함수</h4>
+    <p></p>
+
+    <h4>2. 1 ~ n까지의 곱을 반환하는 함수</h4>
+    <p></p>
+
+    <h4>3. 전달한 정수를 거꾸로 반환하는 함수</h4>
+    <p></p>
+
+    <script>
+        function abs(n) {
+            if (n < 0){
+                n = -n
+            }
+            return n;
+        }
+        function times(n) {
+            var sum = 1;
+            for (let i = 1; i <= n; i++) {
+                sum *= i
+            }
+            return sum;
+        }
+        function reverse(n) {
+            var result = '';
+            while(n != 0){
+                result += String(n % 10);
+                n = parseInt(n/10);
+            }
+            return result;
+            
+        }
+
+        document.getElementsByTagName('p')[0].innerHTML = abs(-30);
+        document.getElementsByTagName('p')[1].innerHTML = times(5);
+        document.getElementsByTagName('p')[2].innerHTML = reverse(1234);
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex17.html</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <h1>이벤트 핸들러 (= 처리기)</h1>
+    <hr>
+
+    <h4>앞서 배운 이벤트가 발생시 처리할 함수를 연결해 주는 것을 의미</h4>
+
+    <ul></ul>
+
+    <p><button onclick="hello()">클릭</button></p>
+    
+    <div onmouseout="alert('마우스를 뺐습니다!')"></div>
+
+    <script>
+        function hello() {
+            let msg = '';
+
+            for (let i = 1; i <= 5; i++) {
+                msg += `<li>${i} : Hello Event~</li>`;
+            }
+
+            document.getElementsByTagName('ul')[0].innerHTML = msg;
+        }
+    </script>
+
+</body>
+</html>
