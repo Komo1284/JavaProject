@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quiz2.html</title>
+    <style>
+        button {
+            width: 180px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Quiz2</h1>
+    <hr>
+
+    <h4>아래 입력한 정보를 화면에 출력</h4>
+
+    <p><input name='name' type="text"></p>
+    <p><input name='kor' type="number"></p>
+    <p><input name='eng' type="number"></p>
+    <p><input name='mat' type="number"></p>
+    <p><button onclick="func()">전송</button></p>
+
+    <hr>
+
+    <h4>결과</h4>
+
+    <result></result>
+
+    <script>
+        function func() {
+            let name = document.getElementsByName('name')[0].value
+            let kor = document.getElementsByName('kor')[0].value
+            let eng = document.getElementsByName('eng')[0].value
+            let mat = document.getElementsByName('mat')[0].value
+            let sum = Number(kor) + Number(eng) + Number(mat)
+            let avg = (sum/3).toFixed(2)
+            let result = 
+                    `<p>${name}</p>` +
+                    `<p>${kor}</p>` +
+                    `<p>${eng}</p>` +
+                    `<p>${mat}</p>` +
+                    `<p>${sum} (${avg})</p>`;
+            
+            document.getElementsByTagName('result')[0].innerHTML = result;
+
+        }
+    </script>
+
+</body>
+</html>

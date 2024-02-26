@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex03.html</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 5px 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>DOM</h1>
+    <hr>
+
+    <h4>Document Object Model</h4>
+
+    <ul>
+        <li>문서 객체 모델</li>
+        <li>페이지 내의 요소를 JS로 처리하게 만들어둔 객체</li>
+    </ul>
+
+    <h4>DOM으로 태그 탐색 방법</h4>
+
+    <table>
+        <thead>
+            <tr>
+                <th>종류</th>
+                <th>설명</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>getElementByID</td>
+                <td>ID 선택자로 요소 접근</td>
+            </tr>
+            <tr>
+                <td>getElementsByClassName</td>
+                <td>Class 선택자로 요소 접근</td>
+            </tr>
+            <tr>
+                <td>getElementsByTagName</td>
+                <td>Tag 선택자로 요소 접근</td>
+            </tr>
+            <tr>
+                <td>getElementsByName</td>
+                <td>Name 속성 값으로 요소 접근</td>
+            </tr>
+            <tr>
+                <td>querySelector</td>
+                <td>지정 선택자로 요소 접근 (한개만 접근 가능)</td>
+            </tr>
+            <tr>
+                <td>querySelectorAll</td>
+                <td>지정 선택자로 요소 접근 (여러개 접근 가능)</td>
+            </tr>
+
+        </tbody>
+    </table>
+
+    <ul>
+        <li id="html">ID 선택자</li>
+        <li class="css">Class 선택자</li>
+        <li class="css">Class 선택자</li>
+        <li name="js">Name 선택자</li>
+        <li>Tag 선택자</li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex05.html</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <h1>여러 요소를 조작</h1>
+    <hr>
+
+    <div></div>
+    <p><button onclick="run()">클릭</button></p>
+    
+    <script>
+        function run() {
+            let div = document.querySelector('div');
+            div.style.backgroundColor = 'blue';
+            div.style.backgroundClip = 'content-box'
+        }
+    </script>
+</body>
+</html>

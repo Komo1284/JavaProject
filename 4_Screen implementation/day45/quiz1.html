@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz1.html</title>
+</head>
+<body>
+    <h1>Quiz1</h1>
+    <hr>
+
+    <input type="number">
+    <button onclick="divi_pri()">입력</button>
+    <hr>
+
+    <h4>결과 : 1 ~ n까지의 약수 출력</h4>
+    <p>Null</p>
+
+    <h4>결과 : 소수 판별</h4>
+    <p>Null</p>
+
+    <script>
+        let divi = document.querySelectorAll('p')[0];
+        let pri = document.querySelectorAll('p')[1];
+        
+        let count = 0;
+        let divi_val = '';
+        function divi_pri() {
+            divi_val = '';
+            count = 0;
+            
+            let num = document.getElementsByTagName('input')[0].value;
+            for (let i = 1; i <= num; i++){
+                if(num % i == 0){
+                    divi_val += (i + ' ');
+                    count ++;
+                }
+            }
+            divi.innerHTML = divi_val;
+            if (count == 2){
+                pri.innerHTML = true;
+            }
+            else {
+                pri.innerHTML = false;
+            }
+            
+
+            
+            
+        }
+    </script>
+</body>
+</html>

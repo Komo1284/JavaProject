@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quiz3.html</title>
+    <style>
+        button {
+            width: 180px;
+        }
+        result {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Quiz3</h1>
+    <hr>
+
+    <h4>input의 값 가져오기 및 검증</h4>
+
+    <p><input type="text" placeholder="아이디"></p>
+    <p><input type="password" placeholder="패스워드"></p>
+    <p><input type="password" onblur="check()" placeholder="패스워드 확인"></p>
+    <p><input type="email" placeholder="이메일"></p>
+    <p><button onclick="func()">가입</button></p>
+
+    <result></result>
+
+    <script>
+        function func() {
+            let id = document.getElementsByTagName('input')[0].value
+            let pw = document.getElementsByTagName('input')[1].value
+            let pw_check = document.getElementsByTagName('input')[2].value
+            let email = document.getElementsByTagName('input')[3].value
+            let result = 'PW가 일치하지 않습니다!!!';
+
+            if(pw == pw_check) {
+                result = '가입이 완료되었습니다';
+            }
+            
+            document.getElementsByTagName('result')[0].innerHTML = result;
+        }
+        function check() {
+            let id = document.getElementsByTagName('input')[0].value
+            let pw = document.getElementsByTagName('input')[1].value
+            let pw_check = document.getElementsByTagName('input')[2].value
+            let email = document.getElementsByTagName('input')[3].value
+
+            if(pw == pw_check) {
+                document.getElementsByTagName('input')[3].focus()
+            }
+            else{
+                document.getElementsByTagName('input')[1].value = null
+                document.getElementsByTagName('input')[2].value = null
+                document.getElementsByTagName('input')[1].focus()
+            }
+        }
+    </script>
+</body>
+</html>

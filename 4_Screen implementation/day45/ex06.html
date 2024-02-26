@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex06.html</title>
+</head>
+<body>
+    <h1>자식 노드 조작</h1>
+    <hr>
+
+    <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JS</li>
+    </ul>
+
+    <script>
+        let ul = document.getElementsByTagName('ul')[0];
+
+        console.log(ul.hasChildNodes())
+        // - 자식 노드가 있으면 참. 단순 텍스트도 자식으로 인식한다
+        // - 즉, 엔터나 띄어쓰기가 있으면 true가 반환된다
+
+        let child = ul.children;
+
+        console.log(child.length)
+        // - 자식 노드 개수
+
+        for (let i = 0; i < child.length; i++) {
+            child[i].innerHTML = `${i} : Hello World!!!`;
+        }
+
+        ul.insertBefore(child[1], child[0]);
+        // - 지정 위치에 특정 노드를 추가
+        // - (추가할 노드, 위치)
+
+        ul.removeChild(child[2])
+        // - 지정 자식 노드를 제거
+        // - 자기 자신은 제거가 불가능하다
+        // - 따라서, 부모 노드를 찾아 자식을 제거해야 한다.
+    </script>
+</body>
+</html>
