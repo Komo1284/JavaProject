@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex03.html</title>
+
+    <style>
+        pre {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>이벤트 처리기</h1>
+    <hr>
+
+    <img src="img/dora.png" title="클릭시 상세 설명">
+
+    <pre>
+잘하는 건 사격과 낮잠 빨리 자기, 
+실뜨기밖에 없고 게으름 피우기만 좋아하고 시험을 보면 항상 빵점을 맞는 소년 노진구. 
+새해부터 뒹굴거리며 지내던 어느 날,
+자신의 책상 서랍에서 진구의 현손자와 미래 로봇 도라에몽이 튀어나온다.
+
+미래의 진구네는 진구가 남긴 빚이 현손자 시대까지 남아서 무척 곤란하다고 한다. 
+어두운 미래를 바꾸기 위해 찾아온 22세기의 로봇 도라에몽과 같이 살게 된 진구. 
+도라에몽은 주머니에서 신비하고도 재밌는 비밀 도구를 꺼내서 진구에게 도움을 준다. 
+진구는 도구를 써서 사건을 해결해 감에 따라 때론 반성하고 배우면서 
+미래는 조금씩 보다 좋은 방향으로 나가게 된다.
+
+<button>접기</button>
+    </pre>
+
+    <h4>높이 확인~</h4>
+
+    <script>
+        // pre.style.display = 'none';
+        var img = document.getElementsByTagName('img')[0];
+        var pre = document.getElementsByTagName('pre')[0];
+        var btn = document.getElementsByTagName('button')[0];
+
+
+        img.onclick = (e) => {
+            pre.style.display = 'block';
+        };
+
+        btn.onclick = (e) => {
+            pre.style.display = 'none';
+        }
+
+    </script>
+
+</body>
+</html>

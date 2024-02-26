@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex05.html</title>
+</head>
+<body>
+    <h1>JS 객체 (Object)</h1>
+    <hr>
+
+    <ul>
+        <li>여러 자료형을 담는 복합 자료형</li>
+        <li>사용자(= 개발자)가 직접 정의한 자료형</li>
+        <li>{}로 묶어서 사용한다</li>
+    </ul>
+
+    <h4>콘솔에서 확인~</h4>
+
+    <script>
+        let per = {
+            name: '홍길동',
+            age: 27,
+            height: 176.4,
+
+            show: function() {
+                console.log(`${this.name}님 ${this.age}세 ${this.height}cm`);
+                // - JS에서는 this를 생략할 수 없다
+            },
+
+            eat: (food) => {
+                console.log(`${this.name}(이)가 ${food}를 먹는다`);
+                // - 화살표 함수는 메서드로 사용 불가능
+                // - this가 없기 때문
+            }
+        };
+
+        console.log(per);
+        
+        per.show();
+        per.eat('라면');
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex01.html</title>
+</head>
+<body>
+    <h1>이벤트 핸들러</h1>
+    <hr>
+
+    <ul></ul>
+
+    <button onclick="liAdd()">추가</button>
+
+    <script>
+        function liAdd() {
+            let li = '<li>Event!!!</li>';
+
+            document.getElementsByTagName('ul')[0].innerHTML += li;
+        }
+    </script>
+
+</body>
+</html>

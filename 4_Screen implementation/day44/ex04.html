@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex04.html</title>
+
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            box-sizing: border-box;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>이벤트 리스너</h1>
+    <hr>
+    
+    <div></div>
+
+    <script>
+        var div = document.getElementsByTagName('div')[0];
+
+        // 이벤트 핸들러(= 처리기) - 같은 대상에 같은 이벤트를 적용시 마지막 것만 적용
+        // div.onclick = (e) => {
+        //     div.style.backgroundColor = 'gold';
+        // };
+        // div.onclick = (e) => {
+        //     div.style.border = '5px double black';
+        // };
+
+
+        // 이벤트 리스너 - 순차적으로 모든 이벤트가 적용된다
+        div.addEventListener('click', (e) => {
+            div.style.backgroundColor = 'gold';
+        });
+
+        div.addEventListener('click', (e) => {
+            div.style.border = '5px double black';
+        });
+    </script>
+
+</body>
+</html>

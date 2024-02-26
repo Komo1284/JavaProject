@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex07.html</title>
+</head>
+<body>
+    <h1>JS 클래스</h1>
+    <hr>
+
+    <ul>
+        <li>{}로 객체를 생성하면 단 1개에만 적용된다</li>
+        <li>동일한 타입의 객체를 여럿 생성하려면 클래스를 활용할 수 있다</li>
+    </ul>
+
+    <ul></ul>
+    
+    <script>
+        class Person {
+            constructor(name, age) {    // 필드는 생성자에 정의해야 함
+                this.name = name;       // this.필드명 = 값;
+                this.age = age;
+            }
+
+            show() {    // 0번째 this가 생략되어 있음
+                return `${this.name} ${this.age}세`;
+            }
+        }
+
+        let ul = document.getElementsByTagName('ul')[1];
+
+        let per1 = new Person('홍길동', 33);
+        let per2 = new Person('김수진', 27);
+
+        ul.innerHTML = `<li>${per1.show()}</li>`;
+        ul.innerHTML += `<li>${per2.show()}</li>`;
+
+    </script>
+
+</body>
+</html>

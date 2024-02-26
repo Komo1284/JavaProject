@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quiz1.html</title>
+
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            box-sizing: border-box;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Quiz1</h1>
+    <hr>
+
+    <div></div>
+
+    <ol>
+        <li>마우스를 올리면 배경색 blue</li>
+        <li>마우스를 누르는 동안 width 200px</li>
+        <li>마우스를 누른것을 때면 height 200px</li>
+        <li>마우스를 빼면 배경색 red, width/height 100px</li>
+    </ol>
+    
+    <script>
+        var div = document.getElementsByTagName('div')[0];
+
+        div.onmouseover = (e) => {
+            div.style.backgroundColor = 'blue';
+        };
+
+        div.onmousedown = (e) => {
+            div.style.width = '200px';
+        };
+
+        div.onmouseup = (e) => {
+            div.style.height = '200px';
+        };
+
+        div.onmouseout = (e) => {
+            div.style.backgroundColor = 'red';
+            div.style.width = '100px';
+            div.style.height = '100px';
+        };
+
+    </script>
+
+</body>
+</html>
