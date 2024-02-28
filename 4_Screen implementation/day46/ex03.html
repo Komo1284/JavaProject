@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex03.html</title>
+</head>
+<body>
+    <h1>노드 생성</h1>
+    <hr>
+
+    <h4></h4>
+
+    <p><!-- 연습 --></p>
+
+    <script>
+        // 1. <div></div> 생성
+        let newDiv = document.createElement('div');
+
+        // 2. <div>JS에서 생성한 노드(= 태그)</div> 추가
+        newDiv.innerHTML = 'JS에서 생성한 노드(= 태그)'
+
+        // 3. <div id="jsNode">추가
+        newDiv.setAttribute('id', 'jsNode');
+
+        let h4 = document.querySelector('h4')
+        h4.appendChild(newDiv)
+
+        // 연습)
+        let newA = document.createElement('a')
+
+        newA.innerHTML = '네이버'
+        newA.setAttribute('href', 'https://www.naver.com/')
+        newA.style.color = 'red';
+
+        document.querySelector('p').appendChild(newA)
+    </script>
+</body>
+</html>

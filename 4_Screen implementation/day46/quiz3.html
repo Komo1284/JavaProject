@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quiz3.html</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <h1>메뉴 옮기기</h1>
+    <hr>
+
+    <fieldset class="user">
+        <legend>사용자 정보</legend>
+        <p><input type="text" placeholder="이름"></p>
+        <p><input type="text" placeholder="전화번호"></p>
+        <p><input type="text" placeholder="주소"></p>
+    </fieldset>
+    <br>
+    <fieldset class="order">
+        <legend>주문 정보</legend>
+        <input type="checkbox" onclick="func()">사용자 정보와 동일
+        <p><input type="text" placeholder="이름"></p>
+        <p><input type="text" placeholder="전화번호"></p>
+        <p><input type="text" placeholder="주소"></p>
+    </fieldset>
+
+    <script>
+        function func() {
+            let user = document.getElementsByClassName('user')[0].children
+            let order = document.getElementsByClassName('order')[0].children
+
+            order[2].children[0].value = user[1].children[0].value
+            order[3].children[0].value = user[2].children[0].value
+            order[4].children[0].value = user[3].children[0].value
+        }
+    </script>
+</body>
+</html>

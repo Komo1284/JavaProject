@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex05.html</title>
+    <style>
+        .container {
+            width: 400px;
+            overflow: hidden;
+        }
+        .slide {
+            display: flex;
+            width: 1200px;
+
+            transition: all 3s;
+        }
+
+        @keyframes slide {
+            100% {
+                transform: translate(-800px);
+            }
+        }
+        .slide > img {
+            width: 400px;
+        }
+        .btns {
+            list-style: none;
+            padding: 0%;
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <h1>이미지 슬라이드 (By JS)</h1>
+    <hr>
+
+    <div class="container">
+        <div class="slide">
+            <img src="img/first.jpg">
+            <img src="img/second.jpg">
+            <img src="img/third.jpg">
+        </div>
+
+        <ul class="btns">
+            <li><button>이전</button></li>
+            <li><button>다음</button></li>
+        </ul>
+    </div>
+
+    <script>
+        let slide = document.querySelector('.slide');
+        let btns = document.querySelectorAll('.btns > li');
+        let width = 400, index = 0;
+        let end = slide.children.length - 1;
+
+        btns[0].onclick = (e) => {
+            if(index <= 0) {
+                index = end + 1;
+            }
+            
+            index--;
+            slide.style.transform = `translate(-${width * index}px)`
+        }
+        btns[1].onclick = (e) => {
+            if (index >= end) {
+                index = -1;
+            }
+            index++;
+            slide.style.transform = `translate(-${width * index}px)`
+        }
+    </script>
+</body>
+</html>

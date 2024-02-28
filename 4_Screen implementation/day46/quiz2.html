@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quiz2.html</title>
+
+    <style>
+        .container {
+            width: 400px;
+            overflow: hidden;
+        }
+        .slide {
+            display: flex;
+            animation: slide 5s ease infinite;
+        }
+        .slide > img {
+            width: 400px;
+        }
+        @keyframes slide {}
+    </style>
+</head>
+<body>
+    <h1>이미지 슬라이드</h1>
+    <hr>
+
+    <div class="container">
+        <div class="slide">
+            <img src="img/first.jpg">
+            <img src="img/second.jpg">
+            <img src="img/third.jpg">
+        </div>
+    </div>
+
+    <script>
+        let slide = document.querySelector('.slide');
+        let imgs = slide.children;
+        let n = imgs.length;
+        let size = 400;
+        let per = 100 / n;
+
+        let css = document.styleSheets[0].cssRules;
+
+        for (let i = 1; i <= n; i++) {
+            let slideSize = size * i;
+
+            if (i == n) {
+                slideSize = 0;
+            }
+
+            css[3].appendRule(`${per * i}% { transform: translateX(-${slideSize}px); }`);
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex01.html</title>
+</head>
+<body>
+    <h1>키보드 이벤트</h1>
+    <hr>
+
+    <h4>개발자 도구에서 확인</h4>
+
+    <script>
+        document.body.onkeydown = (e) => {
+            console.log(e.key)
+            console.log(e.key == 'ArrowRight')
+        }
+    </script>
+</body>
+</html>

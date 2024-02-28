@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex02.html</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h1>키보드 이벤트 실습</h1>
+    <hr>
+
+    <table>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+
+    <script>
+        let tbody = document.querySelector('tbody')
+        let trs = tbody.children;
+        let x = 0, y = 0;
+        let end = trs.length-1;
+
+        trs[x].children[y].style.backgroundColor = 'red'
+
+        document.body.onkeydown = (e) => {
+            
+            trs[x].children[y].style.backgroundColor = 'white'
+            let nx = x , ny = y;       //nextX, nextY : 다음 좌표를 검사하기 위한 값
+            switch (e.key) {
+                case 'ArrowRight' : ny++; break;
+                case 'ArrowLeft' : ny--; break;
+                case 'ArrowUp' : nx--; break;
+                case 'ArrowDown' : nx++; break;
+            }
+
+            // 좌표 벙위 초과 판별
+            if (nx < 0 || ny < 0 || nx > end || ny > end) {
+                alert('범위 초과 입니다')
+            }
+            else {
+                x = nx;
+                y = ny;
+            }
+            trs[x].children[y].style.backgroundColor = 'red'
+        }
+    </script>
+</body>
+</html>

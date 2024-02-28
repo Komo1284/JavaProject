@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quiz1.html</title>
+</head>
+<body>
+    <h1>목록</h1>
+    <hr>
+
+    <h4>할일(To Do)</h4>
+    <input type="text"><button onclick="add()">등록</button>
+
+    <ul></ul>
+
+    <script>
+        function add(){
+            let val = document.getElementsByTagName('input')[0].value
+        
+            let newli = document.createElement('li')
+
+            newli.innerHTML = val
+
+            document.querySelector('ul').appendChild(newli)
+            document.getElementsByTagName('input')[0].value = null;
+            document.getElementsByTagName('input')[0].focus()
+        }
+    </script>
+</body>
+</html>
