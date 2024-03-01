@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home.html</title>
+
+    <style>
+        table {border-collapse: collapse;}
+        th, td {
+            border: 1px solid black;
+            padding: 5px 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Django REST Server 실습</h1>
+    <hr>
+
+    <h4>Django Server를 오픈 후 실습할 것</h4>
+
+    <table>
+        <thead>
+            <th>회원번호</th>
+            <th>아이디</th>
+            <th>패스워드</th>
+            <th>닉네임</th>
+            <th>이메일</th>
+            <th>가입일</th>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <p>
+        <button onclick="Indata()">입력</button>
+        <button onclick="Putdata()">수정</button>
+        <button onclick="Deldata()">삭제</button>
+    </p>
+
+    <script>
+        // 1. (전체 목록 (SelectAll))
+        let url = 'http://127.0.0.1:8000';
+
+        var pop
+        
+        // 위의 url에 get 요청 후 목록을 모두 받아서 tbody에 출력!
+
+        fetch (url, {
+            method : 'get', 
+        })
+        .then(response => response.json())
+        .then(data => {
+
+            console.log(data);
+
+            let msg = '';
+
+            for (let i = 0; i < data.length; i++) {
+                msg +=      `<tr>` +
+                            `<td>${data[i].id}</td>` +
+                            `<td>${data[i].userid}</td>` +
+                            `<td>${data[i].userpw}</td>` +
+                            `<td>${data[i].nick}</td>` +
+                            `<td>${data[i].email}</td>` +
+                            `<td>${data[i].jdate}</td>` +
+                            `</tr>`;
+                }
+            document.querySelector('tbody').innerHTML = msg;
+
+        });
+
+        // 2. 입력
+        function Indata() {
+            pop = open(
+                'popUp/input.html',
+                '_blank',
+                'top=100, left=100, width=600, height= 700'
+            );
+        }
+
+        // 3. 삭제
+        function Deldata() {
+            let id = Number(prompt('삭제할 계정 번호'));
+            let durl = 'http://127.0.0.1:8000/delete/'+`${id}/`;
+
+            fetch (durl, {
+                method : 'delete',
+            })
+            .then(response => response.json())
+            .then(data => {});
+        }
+
+        // 4. 수정
+        // - PUT : 전체 필드 수정시 유리
+        // - PATCH : 부분 필드 수정시 유리
+        function Putdata() {
+            
+            // ※ Django 서버에 PUT이 userpw 변경만 적용되어있다.
+
+            let id = Number(prompt('수정할 계정 번호'));
+            let newPw= prompt('새 패스워드');
+            let purl = 'http://127.0.0.1:8000/put/'+ `${id}/`;
+            let msg = {
+                "userpw" : newPw
+            };
+
+            fetch(purl, {
+                method : "put",
+                header : { "Content-Type": "application/json"},
+                body : JSON.stringify(msg)
+            })
+            .then(response => response.json())
+            .then(data =>{
+                alert("수정 완료");
+            });
+
+        }
+    </script>
+</body>
+</html>

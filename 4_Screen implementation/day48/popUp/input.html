@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>input.html</title>
+
+    <style>
+        fieldset {
+            display: inline;
+        }
+        input {
+            display: block;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>POST 실습</h1>
+    <hr>
+
+    <fieldset>
+        <legend>회원가입</legend>
+
+        <input type="text" placeholder="아이디">
+        <input type="text" placeholder="패스워드">
+        <input type="text" placeholder="닉네임">
+        <input type="text" placeholder="이메일">
+
+        <button onclick="register()">가입</button>
+    </fieldset>
+
+    <script>
+        let url = 'http://127.0.0.1:8000/';
+        let inputs = document.querySelector('fieldset').children;
+
+        function register() {
+            // 1. 아이디 중복 여부 검사
+            fetch (url, {
+                method : 'get', 
+            })
+            .then(response => response.json())
+            .then(data => {
+                // 2. 목록을 받으면 반복을 통해서 ID가 이미 있는지 검사
+                for(let i = 0; i < data.length; i++) {
+                    if(inputs[1].value == data[i].userid) {
+                        alert('이미 있는 계정입니다.');
+                        return;
+                    }
+                }
+                // 3. 중복이 없으면 수행
+                url += 'add/';
+                
+                let newUser =  {
+                    "userid" : inputs[1].value,
+                    "userpw" : inputs[2].value,
+                    "nick" : inputs[3].value,
+                    "email" : inputs[4].value
+                 };
+
+                fetch(url, {
+                    method : 'post',
+                    header : { "Content-Type": "application/json"},
+                    body : JSON.stringify(newUser)
+                })
+                .then (response => response.json())
+                .then (data => {
+                        alert('등록완료');
+                        close();
+                });
+
+            });
+                     
+        }
+       
+    </script>
+</body>
+</html>
