@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex04.html</title>
+</head>
+<body>
+    <h1>팝업창 데이터 처리</h1>
+    <hr>
+
+    <h4>여기는 팝업이 발생한 부모 창(= window)</h4>
+
+    <h4>결과</h4>
+    <ul></ul>
+
+    <button onclick="popUp()">팝업</button>
+
+    <script>
+        var pop;
+
+        // 1. 팝업창을 여는 메서드
+        function popUp() {
+            pop = open(
+                'popUp/ex04_pop.html',
+                '_blank',
+                'top=100, left=100, width=400, height= 500');
+
+        }
+
+        // 2. 팝업창에서 사용할 메서드
+        function getPopUpData(data) {
+            let uls = document.querySelector('ul');
+            uls.innerHTML = data;
+        }
+    </script>
+</body>
+</html>

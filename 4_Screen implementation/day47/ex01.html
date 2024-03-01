@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex01.html</title>
+</head>
+<body>
+    <h1>BOM</h1>
+    <hr>
+
+    <h4>Window 객체</h4>
+
+    <button onclick="popUp()">팝업</button>
+
+    <script>
+        var newWin;
+        function popUp() {
+            newWin = window.open(
+                'https://m.naver.com',
+                '_blank',
+                'width=500, height=700, top=100,left=200');
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quiz1_pop.html</title>
+
+    <style>
+        fieldset {
+            display: inline;
+        }
+
+        input {
+            display: block;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Quiz 팝업창</h1>
+    <hr>
+
+    <fieldset>
+        <legend>정보 입력창</legend>
+
+        <input type="text" placeholder="이름">
+        <input type="text" placeholder="나이">
+
+        <button onclick="Sendata()">전송</button>
+    </fieldset>
+
+    
+
+    <script>
+        let inputs = document.querySelector('fieldset').children;
+        let name;
+        let age;
+        let adult = '미성년자';
+        function Sendata() {
+            name = inputs[1].value;
+            age = inputs[2].value;
+            if (Number(age) >= 19) {
+                adult = '성인';
+            };
+
+            let data = `<li>이름 :${name}</li>
+                        <li>나이 :${age}</li>
+                        <li>이 분은 ${adult}입니다.</li>`;
+
+            opener.ServeData(data);
+
+            close();
+        }
+    </script>
+    
+</body>
+</html>

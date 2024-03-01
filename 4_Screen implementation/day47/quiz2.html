@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quiz2.html</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        th, td  {
+            border: 1px solid black;
+            padding: 5px 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Quiz2</h1>
+    <hr>
+
+    <h4>실습 사이트</h4>
+    <p><a href="https://koreanjson.com" target="_blank">이 사이트를 이용</a></p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>idx</th>
+                <th>이름</th>
+                <th>email</th>
+                <th>연락처</th>
+            </tr>
+        </thead>
+
+        <!-- Get 요청으로 목록을 얻어와서 아래 모두 출력-->
+        <tbody></tbody>
+    </table>
+
+    <script>
+        let url = 'https://koreanjson.com/users';
+
+        fetch(url,{
+            method : 'get',
+        })
+        .then(response => response.json())
+        .then(data => {
+            // console.log(data);
+
+            let num
+            let msg = '';
+
+            for (let i = 0; i < data.length; i++) {
+                num = (i + 1);
+                msg +=     `<tr>` +
+                            `<td>${num}</td>` +
+                            `<td>${data[i].name}</td>` +
+                            `<td>${data[i].email}</td>` +
+                            `<td>${data[i].phone}</td>` +
+                            `</tr>`;
+            }
+
+            document.querySelector('tbody').innerHTML = msg;
+        });
+
+    </script>
+</body>
+</html>

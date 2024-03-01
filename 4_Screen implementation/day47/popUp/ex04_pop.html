@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex04_pop.html</title>
+
+    <style>
+        fieldset {
+            display: inline;
+        }
+
+        input {
+            display: block;
+            margin: 20px 0;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>ex04 팝업창</h1>
+    <hr>
+
+    <fieldset>
+        <legend>회원 정보</legend>
+
+        <input type="text" placeholder="이름">
+        <input type="text" placeholder="나이">
+        <input type="text" placeholder="주소">
+
+        <button onclick="senddt()">전송</button>
+    </fieldset>
+
+    <script>
+        function senddt() {
+            let inputs = document.querySelector('fieldset').children;
+            let name = inputs[1].value;
+            let age = inputs[2].value;
+            let address = inputs[3].value; 
+
+            let msg =   `<li>이름 : ${name}</li> 
+                        <li>나이 : ${age}</li> 
+                        <li>주소 : ${address}</li> `;
+
+            // window.opener == ex04.html
+            // 즉, 팝업창을 연 부모 창 (= window)를 의미
+            opener.getPopUpData(msg);
+
+
+
+            close();
+        }
+        
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex03.html</title>
+</head>
+<body>
+    <h1>Location 객체</h1>
+    <hr>
+
+    <h4>Location 객체</h4>
+
+    <ul>
+        <li>host : URL의 주소와 포트번호</li>
+        <li>hostname : URL 주소</li>
+        <li>port : 포트번호</li>
+        <li>pathname : 파일경로</li>
+        <li>href : 전체 URL</li>
+        <li>http : 프로토콜 이름</li>
+        <li>search : URL의 ? 다음 부분</li>
+        <li>reload(): 새로고침</li>
+    </ul>
+
+    <button onclick="newdisplay()">새로고침</button>
+    <button onclick="naver()">네이버</button>
+
+    <script>
+        function newdisplay() {
+            alert('새로고침!!');
+            location.reload();
+        }
+
+        function naver() {
+            location.href = 'https://www.naver.com';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex02.html</title>
+</head>
+<body>
+    <h1>History 객체</h1>
+    <hr>
+
+    <ul>
+        <li>length : 히스토리 내의 개수</li>
+        <li>back() : 뒤로가기(1칸)</li>
+        <li>forward() : 앞으로 가기(1칸)</li>
+        <li>go(n) : n칸 이동 (+앞, -뒤)</li>
+    </ul>
+
+    <button>이전</button>
+    <button>다음</button>
+
+    <script>
+        let btns = document.querySelectorAll('button');
+
+        btns[0].onclick = (e) => {
+            history.back();
+        }
+
+        btns[1].onclick = (e) => {
+            history.forward();
+        }
+    </script>
+</body>
+</html>
