@@ -123,7 +123,7 @@ public class PersonDAO extends DAO {
 	}
 
 	public int update(PersonVO input, String name) {
-		String sql = "update account " + 
+		String sql = "update person " + 
 							"set name = ?, " + 
 							"height = ?, " + 
 							"birth = ?, " +  
