@@ -1,0 +1,30 @@
+@charset "UTF-8";
+body {
+	width: 1100px;
+	margin: 0 auto;
+}
+header{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.menu {
+	list-style: none;
+	padding: 0;
+	display: flex;
+}
+.menu > li{
+	margin: 0 15px;
+}
+table{
+	border: solid black 1px;
+	padding: 10px;
+	border-collapse: collapse;
+}
+td, th{
+	border: solid black 1px;
+	padding: 10px;
+}
+fieldset{
+	display: inline;
+}
