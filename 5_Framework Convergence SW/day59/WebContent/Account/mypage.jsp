@@ -7,6 +7,7 @@
 	
 		if(acc == null) {
 			acc = new AccountVO();
+			response.sendRedirect("login.jsp");
 		}
 	%>
 
@@ -14,11 +15,11 @@
 		<thead>
 			<tr>
 				<th>IDX</th>
-				<th>ID</th>
-				<th>PW</th>
-				<th>Nick</th>
-				<th>Email</th>
-				<th>Join_Date</th>
+				<th>아이디</th>
+				<th>비밀번호</th>
+				<th>닉네임</th>
+				<th>이메일</th>
+				<th>가입일</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -32,6 +33,11 @@
 			</tr>
 		</tbody>
 	</table>
+	
+	<br>
+	
+	<a href="upInput.jsp?idx=<%=acc.getIdx() %>"><button>회원정보 수정</button></a>
+	<a href="delete.jsp?idx=<%=acc.getIdx() %>"><button>회원탈퇴</button></a>
 
 </body>
 </html>

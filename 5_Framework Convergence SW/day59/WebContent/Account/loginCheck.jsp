@@ -1,3 +1,4 @@
+<%@page import="service.Hash"%>
 <%@page import="model.vo.AccountVO"%>
 <%@page import="model.AccountDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -10,7 +11,10 @@
 		String userid = request.getParameter("id");
 		String userpw = request.getParameter("pw");
 		
-		AccountVO row = dao.login(userid, userpw);
+		Hash hs = new Hash();
+	    String hashPw = hs.getHash(userpw);
+		
+		AccountVO row = dao.login(userid, hashPw);
 		
 		if (row != null) {
 			session.setAttribute("acc", row);

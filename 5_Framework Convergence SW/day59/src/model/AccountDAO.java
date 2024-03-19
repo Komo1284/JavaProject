@@ -177,5 +177,61 @@ public class AccountDAO extends DAO {
 		return null;
 	}
 	
+	public String findId(String email) {
+		String sql = "select userid from account where email = ?";
+		
+		try {
+			pstmt = getPrepared(sql);
+			pstmt.setString(1, email);
+			
+			rs = pstmt.executeQuery();
+			rs.next();
+
+			
+			return rs.getString("userid");
+			
+		} catch(SQLException e) {
+			System.err.println("findId 예외 : " + e.getMessage());
+			
+		} finally {
+			close();
+		}
+		
+		
+		return null;
+	}
+	
+	public String findPw(String userid, String email) {
+		String sql = "select userpw from account "
+				+ "where email = ? and userid = ?";
+		
+		try {
+			pstmt = getPrepared(sql);
+			pstmt.setString(1, email);
+			pstmt.setString(2, userid);
+			
+			rs = pstmt.executeQuery();
+			rs.next();
+
+			
+			return rs.getString("userpw");
+			
+		} catch(SQLException e) {
+			System.err.println("findPw 예외 : " + e.getMessage());
+			
+		} finally {
+			close();
+		}
+		
+		
+		return null;
+	}
+	
+	public int changePw(String newPw) {
+		
+		
+		
+		return 0;
+	}
 	
 }

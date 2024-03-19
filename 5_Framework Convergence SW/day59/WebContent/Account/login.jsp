@@ -11,6 +11,10 @@
 			<p><input type="password" name="pw" placeholder="비밀번호" required></p>
 			
 			<p><button>로그인</button></p>
+			
+			<a href="findAcc.jsp">
+				<button type="button">ID/PW 찾기</button>
+			</a>
 		</form>
 	</fieldset>
 	

@@ -38,7 +38,7 @@
 			<tr>
 				<td><%=row.getIdx()%></td>
 				<td><%=row.getUserid() %></td>
-				<td><%=row.getUserpw() %></td>
+				<td><%=row.getUserpw().substring(0, 2) %></td>
 				<td><%=row.getNick() %></td>
 				<td><%=row.getEmail() %></td>
 				<td><%=row.getJoin_date() %></td>

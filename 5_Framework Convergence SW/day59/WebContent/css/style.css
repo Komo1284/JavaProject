@@ -28,3 +28,6 @@ td, th{
 fieldset{
 	display: inline;
 }
+.find{
+	display: flex;
+}

@@ -1,6 +1,4 @@
 <%@page import="service.Hash"%>
-<%@page import="model.vo.AccountVO"%>
-<%@page import="model.AccountDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="header.jsp" %>
@@ -14,6 +12,8 @@
 	    String pw_check = request.getParameter("pw_check");
 	    String nick = request.getParameter("nick");
 	    String email = request.getParameter("email");
+	    String sidx = request.getParameter("idx");
+	    int idx = Integer.parseInt(sidx);
 	    
 	    
 	
@@ -28,31 +28,30 @@
 	    } else {
 	        // AccountVO 객체 생성 및 설정
 	        AccountVO acc = new AccountVO();
-	        acc.setUserid(userid);
-	        acc.setUserpw(pw);
-	        acc.setNick(nick);
-	        acc.setEmail(email);
 	        
 	        Hash hs = new Hash();
-		    String srcPw = acc.getUserpw();		// 원본 PW를 받아
-		    String hashPw = hs.getHash(srcPw);	// Hash에 전달
+		    String hashPw = hs.getHash(pw);
 		    
-		    acc.setUserpw(hashPw);				// 해시 PW로 세팅 후
+	        acc.setUserid(userid);
+	        acc.setUserpw(hashPw);
+	        acc.setNick(nick);
+	        acc.setEmail(email);
+	        acc.setIdx(idx);
 	
-	        int row = dao.insert(acc);			// DB에 전달
+	        int row = dao.update(acc, idx);
 	
 	        // 회원가입 결과에 따라 처리
 	        if (row != 0) {
 	%>
 	            <script>
-	                alert('회원가입 성공');
+	                alert('회원정보수정 성공');
 	                location.href = 'home.jsp'; // 홈 페이지로 이동
 	            </script>
 	<%
 	        } else {
 	%>
 	            <script>
-	                alert('회원가입 실패');
+	                alert('회원정보수정 실패');
 	                history.go(-1); // 이전 페이지로 이동
 	            </script>
 	<%
