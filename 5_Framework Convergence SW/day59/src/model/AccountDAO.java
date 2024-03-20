@@ -227,9 +227,26 @@ public class AccountDAO extends DAO {
 		return null;
 	}
 	
-	public int changePw(String newPw) {
+	public int changePw(AccountVO acc, String newPw) {
 		
+		String sql = "update account " + 
+				"set userpw = ?, " + 
+				"where idx = ?";
+
+		try {
+		pstmt = getPrepared(sql);
 		
+		pstmt.setString(1, newPw);
+		pstmt.setInt(2, acc.getIdx());
+		
+		return pstmt.executeUpdate();
+		
+		} catch(SQLException e) {
+		System.out.println("update 예외 : " + e.getMessage());
+		
+		} finally {
+		close();
+		}
 		
 		return 0;
 	}

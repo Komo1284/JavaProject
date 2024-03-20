@@ -1,3 +1,4 @@
+<%@page import="service.Hash"%>
 <%@page import="service.NewPw"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -17,27 +18,35 @@
 			NewPw np = new NewPw();
 			newPw = np.getPw();
 			
-			// 2-1. 사용자에게는 해시 처리 전의 패스워드를 보여주고
-	%>		<script>
-				let userpw = '<%= newPw%>';
-				
-				if (user != 'null') {
-					alert('임시발급 패스워드는 ' + newPw + ' 입니다');
-				}
-				else {
-					alert(newPw);
-					history.go(-1);
-				}
-				
-			</script>
-	<%
+			Hash hs = new Hash();
+		    String newhashPw = hs.getHash(newPw);
+			
+		    String pw = dao.findPw(acc.getUserid(), acc.getEmail());
+		    acc.setUserpw(pw);
+		    
+		    int row = dao.changePw(acc, newhashPw);
+		    if(row != 0) {
+				// 2-1. 사용자에게는 해시 처리 전의 패스워드를 보여주고
+	    	%>		<script>
+	    				let newPw = '<%= newPw%>';
+	    				
+	    				if (pw != 'null') {
+	    					alert('임시발급 패스워드는 ' + newPw + ' 입니다');
+	    					location.href('home.jsp');
+	    				}
+	    				else {
+	    					alert('일치하는 정보가 없습니다');
+	    					history.go(-1);
+	    				}
+	    				
+	    			</script>
+	    	<%
+		    }
+			
+	
 			// 2-2. DB는 해시 처리 후의 패스워드로 수정한다
 		}
-		dao.changePw(newPw);
 	%>
-		<script>
-			location.href('home.jsp');
-		</script>
 
 </body>
 </html>
