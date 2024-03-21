@@ -1,0 +1,47 @@
+@charset "UTF-8";
+body {
+	width: 700px;
+	margin: 0 auto;
+}
+a {
+	color: black;
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+header ul {
+	list-style: none;
+	display: flex;
+	padding: 0;
+}
+header li {
+	margin: 0 15px;
+}
+.board {
+	border-collapse: collapse;
+	width: 70%;
+}
+.board th, .board td {
+	border: 1px solid black;
+	padding: 5px 10px;
+}
+.write input, .write textarea {
+	box-sizing: border-box;
+	width: 100%;
+	border: 0;
+	outline: none;
+	font-family: consolas;
+}
+.write textarea {
+	resize: none;
+	min-height: 250px;
+}
+footer {
+	text-align: center;
+}
