@@ -17,15 +17,15 @@
 	<c:set var="signup" value="${empty user ? 'signUp' : 'myPage' }"/>
 
 
-<header>
-	<h1>ITBANK</h1>
-	
-	<ul>
-		<li><a href="${cpath }/home.jsp">Home</a></li>
-		<li><a href="${cpath }/board/write.jsp">Write</a></li>
-		<li><a href="${cpath }/account/${login }.jsp">${login }</a></li>
-		<li><a href="${cpath }/account/${signup }.jsp">${nick }</a></li>
-	</ul>
+<header class="main-header">
+    <h1 class="logo">ITBANK</h1>
+    <nav class="main-nav">
+        <ul>
+            <li><a href="${cpath }/home.jsp">Home</a></li>
+            <li><a href="${cpath }/board/write.jsp">Write</a></li>
+            <li><a href="${cpath }/account/${login }.jsp">${login }</a></li>
+            <li><a href="${cpath }/account/${signup }.jsp">${nick }</a></li>
+        </ul>
+    </nav>
 </header>
 
-<hr>

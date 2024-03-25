@@ -3,9 +3,12 @@ package model;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import model.vo.BoardVO;
+import service.Paging;
 
 public class BoardDAO extends DAO {
 	
@@ -22,12 +25,45 @@ public class BoardDAO extends DAO {
 		return row;
 	}
 	
-	public List<BoardVO> selectAll(){
-		String sql = "select * from board order by idx desc";
+	public int totalBoard() {
+		String sql = "select count(*) as count from board";
 		
 		try {
 			stmt = getStatement();
 			rs = stmt.executeQuery(sql);
+			
+			rs.next();
+			
+			return rs.getInt("count");
+			
+		} catch (SQLException e) {
+			System.out.println("totalBoard 예외 : " + e.getMessage());
+		} finally {
+			close();
+		}
+		
+		return 0;
+	}
+	
+	public Map<String, Object> selectAll(int reqPage){
+		// 페이징 객체와 리스트를 담기 위한 Map을 선언
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		// 페이징 진행
+		Paging pg = new Paging(reqPage, totalBoard());
+		
+		String sql = "select * from board " + 
+						"order by idx desc " + 
+						"offset ? rows " + 
+						"fetch first ? rows only";
+		
+		try {
+			pstmt = getPrepared(sql);
+			
+			pstmt.setInt(1, pg.getOffset());
+			pstmt.setInt(2, pg.getBoardCount());
+			
+			rs = pstmt.executeQuery();
 			
 			List<BoardVO> list = new ArrayList<>();
 			
@@ -36,7 +72,11 @@ public class BoardDAO extends DAO {
 				list.add(row);
 			}
 			
-			return list;
+			// 맵에 반환할 객체를 저장
+			map.put("list" , list);
+			map.put("pg", pg);
+			
+			return map;
 			
 		} catch(SQLException e) {
 			System.err.println("SelectAll 예외 : " + e.getMessage());
@@ -150,6 +190,50 @@ public class BoardDAO extends DAO {
 		}
 		
 		return null;
+	}
+	
+	public int delete(int idx) {
+		String sql = "delete from board where idx = ?";
+		
+		try {
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, idx);
+			
+			return pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			System.out.println("delete 예외 : " + e.getMessage());
+		}
+		
+		return 0;
+	}
+
+	public int update(BoardVO input) {
+		String sql = "update board "
+				+ "set "
+					+ "title = ?, "
+					+ "contents = ? "
+				+ "where idx = ?";
+		
+		try {
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, input.getTitle());
+			pstmt.setString(2, input.getContents());
+			pstmt.setInt(3, input.getIdx());
+			
+			return pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			System.out.println("update 예외 : " + e.getMessage());
+			
+		} finally {
+			close();
+		}
+		
+		return 0;
 	}
 	
 }

@@ -1,30 +1,79 @@
 @charset "UTF-8";
-a {
-  font-weight: bold;
-  color: black;
+/* 추가된 CSS 스타일 */
+.main-header {
+    background-color: #f0f0f0;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
+.main-header .logo {
+    margin: 0;
+    font-size: 24px;
+    color: #333;
+}
+
+.main-header .main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.main-header .main-nav ul li {
+    display: inline;
+    margin-left: 20px;
+}
+
+.main-header .main-nav ul li a {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.main-header .main-nav ul li a:hover {
+    color: #e74c3c;
+}
+
+/* 새로운 CSS 코드 추가 */
+/* 포인트 컬러를 빨간색으로 변경 */
+a {
+  font-weight: bold;
+  color: red; /* 빨간색으로 변경 */
+}
+
+/* 포인트 컬러에 대한 hover 및 focus 효과 변경 */
 a:focus,
 a:hover {
   display: inline-block;
   transform: translateY(-2px);
-  color: gray;
-  transition: 1s;
+  color: darkred; /* 더 진한 빨간색으로 변경 */
+  transition: 0.5s; /* 트랜지션 시간 축소 */
 }
+
+/* 메뉴 항목의 색상 및 밑줄 스타일 변경 */
 li > a {
-	color: green;
-	text-decoration: underline lightgreen;
+	color: red;
+	text-decoration: none; /* 밑줄 제거 */
 }
+
 li > a:hover {
-	  color: lightgreen;
+	color: darkred; /* hover 시 밝은 녹색으로 변경 */
 }
+
+/* 제목 링크에 대한 색상 및 밑줄 스타일 변경 */
 .titlelist > a {
 	color: black;
-	text-decoration: underline gray;
+	text-decoration: none; /* 밑줄 제거 */
 }
+
 .titlelist > a:hover {
-	  color: gray;
+	color: gray; /* hover 시 회색으로 변경 */
 }
+
+/* 기존 CSS 코드는 그대로 유지 */
+
 body {
 	width: 700px;
 	margin: 0 auto;
@@ -84,6 +133,18 @@ textarea {
 	min-height: 500px;
 	min-width: 700px;
 }
+.page {
+	display: flex;
+	width: 70%;
+	justify-content: center;
+	list-style: none;
+	padding: 0;
+	margin: 0 auto;
+}
+.page li{
+	margin: 0 10px;
+}
+
 footer {
 	text-align: center;
 }
