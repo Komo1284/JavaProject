@@ -11,6 +11,8 @@
 				<th>국어</th>
 				<th>영어</th>
 				<th>수학</th>
+				<th>수정</th>
+				<th>삭제</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -21,6 +23,8 @@
 					<td>${i.kor }</td>
 					<td>${i.eng }</td>
 					<td>${i.mat }</td>
+					<td><a href="${cpath }/student/update?idx=${i.idx }">클릭</a></td>
+					<td><a href="${cpath }/student/delete?idx=${i.idx }">클릭</a></td>
 				</tr>
 			</c:forEach>
 		</tbody>
