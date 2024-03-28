@@ -1,38 +1,92 @@
 package model;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
 
-public class StudentDAO extends DAO {
+import model.vo.StudentVO;
+
+public class StudentDAO {
+	private Context ct;
+	private DataSource ds;
 	
-	protected StudentVO mapper(ResultSet rs) throws SQLException {
-		
-		StudentVO row = new StudentVO();
-		row.setIdx(rs.getInt("idx"));
-		row.setName(rs.getString("name"));
-		row.setKor(rs.getInt("kor"));
-		row.setEng(rs.getInt("eng"));
-		row.setMat(rs.getInt("mat"));
-		
-		return row;
+	private Connection conn;
+	private Statement stmt;
+	private PreparedStatement pstmt;
+	private ResultSet rs;
+	
+	public StudentDAO() {
+		try {
+			ct = new InitialContext();
+			ds = (DataSource) ct.lookup("java:comp/env/jdbc/oracle");
+			
+		} catch (NamingException e) {
+			System.out.println("생성자 예외 : " + e.getMessage());
+			
+		} finally {
+			close();
+		}
 	}
 	
-	public List<StudentVO> selectAll() {
-		String sql = "select * from student order by idx";
+	private void close() {
 		try {
+			if (rs != null) 	rs.close();
+			if (pstmt != null) 	pstmt.close();
+			if (stmt != null) 	stmt.close();
+			if (conn != null) 	conn.close();
 			
+		} catch(Exception e) {}
+	}
+	
+	public String test() {
+		String sql = "select banner from v$version";
+		
+		try {
 			conn = ds.getConnection();
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);
 			
-			List<StudentVO> list = new ArrayList<StudentVO>();
+			rs.next();
 			
-			while(rs.next()) {
+			return rs.getString("banner");
+			
+		} catch (SQLException e) {
+			System.out.println("test 예외 : " + e.getMessage());
+			
+		} finally {
+			close();
+		}
+		
+		return null;
+	}
+
+	public List<StudentVO> selectAll() {
+		String sql = "select * from student order by idx desc";
+		
+		try {
+			conn = ds.getConnection();
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
+			
+			List<StudentVO> list = new ArrayList<>();
+			
+			while (rs.next()) {
+				StudentVO row = new StudentVO();
 				
-				StudentVO row = mapper(rs);
+				row.setEng(rs.getInt("eng"));
+				row.setIdx(rs.getInt("idx"));
+				row.setKor(rs.getInt("kor"));
+				row.setMat(rs.getInt("mat"));
+				row.setName(rs.getString("name"));
 				
 				list.add(row);
 			}
@@ -41,44 +95,20 @@ public class StudentDAO extends DAO {
 			
 		} catch (SQLException e) {
 			System.out.println("selectAll 예외 : " + e.getMessage());
+			
 		} finally {
 			close();
 		}
 		
 		return null;
 	}
-	
-	public StudentVO selectOne(int idx) {
-		String sql = "select * from student where idx = ?";
-		
-		try {
-			
-			conn = ds.getConnection();
-			pstmt = conn.prepareStatement(sql);
-			
-			pstmt.setInt(1, idx);
-			
-			rs = pstmt.executeQuery();
-			rs.next();
-			
-			return mapper(rs);
-			
-		} catch (SQLException e) {
-			System.out.println("selectOne 예외 : " + e.getMessage());
-		} finally {
-			close();
-		}
-		
-		
-		return null;
-	}
-	
+
 	public int insert(StudentVO stu) {
-		String sql = "insert into student (name, kor, eng, mat) "
-				+ "values (?, ?, ?, ?)";
+		String sql = "insert into "
+				+ "student(name, kor, eng, mat) "
+				+ "values(?, ?, ?, ?)";
 		
 		try {
-			
 			conn = ds.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			
@@ -89,22 +119,23 @@ public class StudentDAO extends DAO {
 			
 			return pstmt.executeUpdate();
 			
-			
 		} catch (SQLException e) {
 			System.out.println("insert 예외 : " + e.getMessage());
+			
 		} finally {
 			close();
 		}
 		
-		
 		return 0;
 	}
+
 	
 	public int delete(int idx) {
 		String sql = "delete from student where idx = ?";
 		
 		try {
 			conn = ds.getConnection();
+			
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, idx);
 			
@@ -122,12 +153,12 @@ public class StudentDAO extends DAO {
 
 	public int update(StudentVO stu) {
 		String sql = "update student "
-						+ "set "
-							+ "name = ?, "
-							+ "kor = ?, "
-							+ "eng = ?, "
-							+ "mat = ? "
-						+ "where idx = ?";
+				+ "set "
+					+ "name = ?, "
+					+ "kor = ?, "
+					+ "eng = ?, "
+					+ "mat = ? "
+				+ "where idx = ?";
 		
 		try {
 			conn = ds.getConnection();
@@ -150,5 +181,4 @@ public class StudentDAO extends DAO {
 		
 		return 0;
 	}
-	
 }

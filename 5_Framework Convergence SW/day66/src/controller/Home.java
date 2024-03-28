@@ -12,16 +12,15 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/home")
 public class Home extends HttpServlet {
 
-	private static final long serialVersionUID = -8753957661320028246L;
+	private static final long serialVersionUID = 100L;
 	
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) 
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		
 		RequestDispatcher rd;
-		rd = req.getRequestDispatcher("/WEB-INF/home.jsp");
+		rd = request.getRequestDispatcher("/WEB-INF/home.jsp");
 		
-		rd.forward(req, resp);
+		rd.forward(request, response);
 	}
-	
 }

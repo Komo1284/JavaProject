@@ -1,9 +1,18 @@
-package model;
+package model.vo;
+
+/*
+	IDX  NOT NULL NUMBER       
+	NAME NOT NULL VARCHAR2(30) 
+	KOR           NUMBER       
+	ENG           NUMBER       
+	MAT           NUMBER
+*/
 
 public class StudentVO {
 	private int idx;
 	private String name;
 	private int kor, eng, mat;
+	
 	public int getIdx() {
 		return idx;
 	}
@@ -34,14 +43,4 @@ public class StudentVO {
 	public void setMat(int mat) {
 		this.mat = mat;
 	}
-	public StudentVO(int idx, String name, int kor, int eng, int mat) {
-		super();
-		this.idx = idx;
-		this.name = name;
-		this.kor = kor;
-		this.eng = eng;
-		this.mat = mat;
-	}
-	
-	public StudentVO() {}
 }

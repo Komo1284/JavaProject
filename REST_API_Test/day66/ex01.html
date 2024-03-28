@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex01</title>
+
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 5px 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>JSP - REST API</h1>
+
+    <table class="students">
+        <thead>
+            <tr>
+                <th>학번</th>
+                <th>이름</th>
+                <th>국어</th>
+                <th>영어</th>
+                <th>수학</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <br>
+
+    <button>추가</button>
+    <button>수정</button>
+    <button>삭제</button>
+
+    <script>
+        // 1. GET /student : 학생 목록 전체
+        let url = 'http://localhost:8080/day66/student';
+
+        fetch(url, { 
+            method: 'get',  
+        })
+        .then(response => response.json())
+        .then(data => {
+            let students = document.querySelectorAll('.students > tbody')[0];
+            let list = data['list'];
+            let tr = '';
+
+            for (let i = 0; i < list.length; i++) {
+                tr += `<tr>` +
+                    `<td>${list[i].idx}</td>` +
+                    `<td>${list[i].name}</td>` +
+                    `<td>${list[i].kor}</td>` +
+                    `<td>${list[i].eng}</td>` +
+                    `<td>${list[i].mat}</td>` + 
+                    `</tr>`;
+            }
+
+            students.innerHTML = tr;
+        })
+        
+
+        // 2. POST /student : 학생 추가
+        let btns = document.querySelectorAll('button');
+        let add = btns[0];
+
+        add.onclick = () => {
+            let name = prompt('이름');
+            let kor = Number(prompt('국어'));
+            let eng = Number(prompt('영어'));
+            let mat = Number(prompt('수학'));
+
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    "name": name,
+                    "kor": kor,
+                    "eng": eng,
+                    "mat": mat
+                }),
+            })
+            .then(response => {
+                console.log('응답 : ' + response.status);
+            })
+        };
+    
+
+        // 3. DELETE /student : 학생 삭제
+        let del = btns[2];
+        
+        del.onclick = () => {
+            let idx = Number(prompt('삭제할 번호'));
+            
+            if (idx == 0) { 
+                alert('값을 입력하지 않았습니다');
+                return;
+            }
+
+            fetch(url + `?idx=${idx}`, { method: 'DELETE' })
+            .then(response => {
+                let code = response.status;
+
+                if (code == 200) {
+                    alert('삭제 완료');
+                }
+                else {
+                    alert('삭제 실패');
+                }
+            })
+        };
+
+
+        // 4. PUT /student : 학생 수정
+        let upd = btns[1];
+
+        upd.onclick = () => {
+            let idx = Number(prompt('변경할 학번'));
+            let name = prompt('이름');
+            let kor = Number(prompt('국어'));
+            let eng = Number(prompt('영어'));
+            let mat = Number(prompt('수학'));
+
+            fetch(url, {
+                method: 'PUT',
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    "idx": idx,
+                    "name": name,
+                    "kor": kor,
+                    "eng": eng,
+                    "mat": mat
+                }),
+            })
+            .then(response => {
+                let code = response.status;
+
+                if (code == 200) {
+                    alert('변경 완료');
+                }
+                else {
+                    alert('변경 실패');
+                }
+            })
+        };
+    </script>
+</body>
+</html>
