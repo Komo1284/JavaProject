@@ -1,0 +1,72 @@
+@charset "UTF-8";
+body {
+	width: 1200px;
+	margin: 0 auto;
+}
+header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: darkred;
+	color: #f7f7f7; /* 변경된 부분: 어울리는 색상 추천 (밝은 회색) */
+	padding: 10px 20px;
+	font-family: Arial, sans-serif; /* 변경된 부분: 헤더의 글꼴 설정 */
+}
+h1 {
+	font-size: 24px; /* 변경된 부분: 제목의 글꼴 크기 조절 */
+	font-weight: bold; /* 변경된 부분: 제목의 굵기 조절 */
+	margin: 0; /* 변경된 부분: 제목의 상하 여백 제거 */
+}
+.menu {
+	list-style: none;
+	padding: 0;
+	display: flex;
+	justify-content: space-between;
+}
+.menu li {
+	margin: 0 10px;
+	transition: color 0.3s, transform 0.3s;
+	font-family: Arial, sans-serif; /* 변경된 부분: 메뉴의 글꼴 설정 */
+}
+.menu li a {
+	color: #f7f7f7;
+	text-decoration: none;
+	display: block;
+	padding: 10px;
+	border-radius: 5px;
+	font-weight: bold; /* 변경된 부분: 메뉴의 굵기 조절 */
+}
+.menu li:hover {
+	color: #FF5733; /* 변경된 부분: 호버 시 텍스트 색상 변경 (어울리는 색상 추천) */
+	transform: scale(1.1);
+}
+.menu li a:hover {
+	background-color: rgba(255, 255, 255, 0.1);
+}
+.home {
+	margin: 20px 0;
+	display: flex;
+	justify-content: space-between;
+}
+.side {
+	width: 20%;
+}
+.side > fieldset {
+	border-radius: 45px;
+}
+article{
+	width: 78%;
+}
+.board {
+	width: 100%;
+	border-collapse: collapse;
+	text-align: center;
+}
+.board th, .board td {
+	border-bottom: 1px solid grey;
+	padding: 5px 10px;
+}
+.board td:nth-child(2) {
+	width: 60%;
+	text-align: left;
+}
