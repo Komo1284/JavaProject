@@ -21,7 +21,7 @@
 	
 	<ul class="menu">
 		<li><a href="${cpath }">home</a></li>
-		<li><a href="${cpath }/account">user</a></li>
+		<li><a href="${cpath }/account?page=1">user</a></li>
 		<li><a href="${cpath }/account/${login }">${login }</a></li>
         <li><a href="${cpath }/account/${signup }">${nick }</a></li>
 	</ul>

@@ -8,7 +8,7 @@
 		<hr>
 		<div class="cotents_view">${row.contents }</div>
 		<hr>
-		<c:if test="${row.nick == user.nick || user.nick == '관리자'}">
+		<c:if test="${row.nick == user.nick || user.idx == 1001}">
 			<a href="${cpath }/board/update?idx=${row.idx }">
 				<button>수정</button>
 			</a>

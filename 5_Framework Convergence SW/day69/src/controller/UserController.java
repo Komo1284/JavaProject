@@ -2,6 +2,8 @@ package controller;
 
 import java.io.IOException;
 import java.sql.ResultSet;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -37,10 +39,20 @@ public class UserController extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) 
 			throws ServletException, IOException {
 		
-		String sql = "select * from account";
+		String pageParam = req.getParameter("page");
+		int reqPage = pageParam != null ? Integer.parseInt(pageParam) : 1;
+		
 		DAO dao = new DAO();
 		
-		req.setAttribute("list", dao.query(sql, mp));
+		String sql = "select * from account " + 
+						"order by idx desc " + 
+						"offset ? rows " + 
+						"fetch first ? rows only";
+		
+		Map<String, Object> map = new HashMap<>();
+		map = dao.query(sql,reqPage, mp);
+		
+		req.setAttribute("map", map);
 		
 		RequestDispatcher rd;
 		rd = req.getRequestDispatcher("/WEB-INF/account/userList.jsp");

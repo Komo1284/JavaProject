@@ -38,11 +38,15 @@ public class ViewController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		String sql = "select * from board_view where idx = ?";
-		
-		int idx = Integer.parseInt(req.getParameter("idx"));
+		String sql = "update board set v_count = v_count + 1 "
+				+ "where idx = ?";
 		
 		DAO dao = new DAO();
+		int idx = Integer.parseInt(req.getParameter("idx"));
+		
+		dao.update(sql, idx);
+		
+		sql = "select * from board_view where idx = ?";
 		
 		req.setAttribute("row", dao.queryForObject(sql, mp, idx));
 		

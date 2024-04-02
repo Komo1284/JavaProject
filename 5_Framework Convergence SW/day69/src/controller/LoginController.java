@@ -62,13 +62,17 @@ public class LoginController extends HttpServlet {
 			String userid = req.getParameter("userid");
 			String userpw = req.getParameter("userpw");
 			
-			userpw = HashPw.getHash(userpw);
+			String hashpw = HashPw.getHash(userpw);
 			
-			AccountVO user = dao.queryForObject(sql, mp, userid, userpw);
+			AccountVO user = dao.queryForObject(sql, mp, userid, hashpw);
 			session.setAttribute("user", user);
 			
-			String cpath = req.getContextPath();
-			resp.sendRedirect(cpath);
+			req.setAttribute("userid", user.getUserid());
+			
+			RequestDispatcher rd;
+			rd = req.getRequestDispatcher(path + "login.jsp");
+			
+			rd.forward(req, resp);
 			
 		}
 		

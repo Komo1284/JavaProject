@@ -70,3 +70,20 @@ article{
 	width: 60%;
 	text-align: left;
 }
+#account td {
+	width: 20%;
+}
+.w70 {
+	width: 70%;
+	margin: 0 auto;
+}
+.page {
+	display: flex;
+	width: 90%;
+	justify-content: center;
+	list-style: none;
+	padding: 0;
+}
+.page li {
+	margin: 0 10px;
+}

@@ -57,7 +57,7 @@ public class FindPwController extends HttpServlet {
 		String email = req.getParameter("email");
 		
 		AccountVO user = dao.queryForObject(sql, mp, userid, email);
-		System.out.println(user.getIdx());
+		System.out.println(user);
 		
 		// newPw 만들어서 request로 전달
 		String newPw = NewPw.getPw();

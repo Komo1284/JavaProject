@@ -1,0 +1,74 @@
+페이징(Paging) 알고리즘
+
+reqPage		사용자가 요청한 페이지
+totalBoard	총 게시글 수 (1742개)
+boardCount	한 페이지에 출력할 게시글 수 (10개)
+totalPage	총 페이지 수
+offset		SQL에서 게시글을 가져올 시작점
+pageCount	한 페이지에 출력할 페이지 번호 수 (10개)
+section		페이지 숫자를 구분할 index 역할
+begin		지정 section의 첫 페이지 번호
+end		지정 section의 끝 페이지 번호
+prev		이전 section 존재 여부
+next		다음 section 존재 여부
+
+
+1. 총 페이지 수
+totalPage = totalBoard / boardCount
+	  = 174 ... 2
+
+※ 나머지가 있다 -> 게시글이 남았다!!!
+※ 즉, 페이지가 1개 더 필요하다
+
+totalPage += (totalBoard % boardCount == 0) ? 0 : 1;
+
+총 페이지 수는 175 page가 되겠다
+
+
+2. 게시글 분할하기
+필요 SQL문)
+select * from board
+    order by idx desc
+    offset 0 rows 
+    fetch first 10 rows only
+
+※ 위의 SQL 구문에서 offset과 게시글 수(= 10)이 필요하다
+
+reqPage		offset
+----------------------------
+1		0
+2		10
+3		20
+...
+n - 2
+n - 1
+n		(n - 1) * 10
+
+offset = (reqPage - 1) * boardCount;
+
+
+3. 페이지 숫자 분할하기
+section		reqPage		begin	end	totalPage
+---------------------------------------------------------
+0		1 ~ 10		1	10	175
+1		11 ~ 20		11	20	175
+2		21 ~ 30		21	30	175
+...
+16		161 ~ 170	161	170	175
+17		171 ~ 180	171	180	175
+
+section = (reqPage - 1) / pageCount
+begin = section * pageCount + 1
+end = (section + 1) * pageCount
+
+
+※ 마지막 section인 경우 전체 페이지 수(totalPage)가 end가 되게 하낟
+end = (end < totalPage) ? end : totalPage
+
+
+
+4. 이전/다음 section 존재 여부 판별
+prev = section != 0
+next = totalPage != end
+
+

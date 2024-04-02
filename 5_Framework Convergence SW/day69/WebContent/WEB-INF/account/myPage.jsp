@@ -10,7 +10,7 @@
 	</c:if> 
 
 	<form method="post">
-		<table>
+		<table class="board w70">
 			<tbody>
 				<tr>
 					<th>IDX</th>

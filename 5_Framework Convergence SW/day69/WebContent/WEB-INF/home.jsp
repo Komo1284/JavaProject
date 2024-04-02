@@ -3,7 +3,8 @@
 <%@ include file="header.jsp" %>
 <main class="home">
 	<%@ include file="sideMenu.jsp" %>
-
+<c:set var="list" value="${map['list'] }"/>
+<c:set var="pg" value="${map['pg'] }"/>
 <article>
 	<table class="board">
 		<thead>
@@ -33,6 +34,26 @@
 	<h4><a href="${cpath }/board">
 		<button>글쓰기</button>	
 	</a></h4>
+	
+	<ul class="page">
+		<c:if test="${pg.prev }">
+		<li><a href="${cpath }/home?page=${pg.begin - 1 }">
+			이전
+		</a></li>
+		</c:if>
+	
+		<c:forEach var="i" begin="${pg.begin }" end="${pg.end }">
+		<li><a href="${cpath }/home?page=${i }">
+			${i }
+		</a></li>
+		</c:forEach>
+		
+		<c:if test="${pg.next }">
+		<li><a href="${cpath }/home?page=${pg.end + 1 }">
+			다음
+		</a></li>
+		</c:if>
+	</ul>
 </article>
 	
 </main>
