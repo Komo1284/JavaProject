@@ -5,16 +5,17 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link href="${cpath }/resources/css/style.css" rel="stylesheet">
 	<title>Home</title>
 </head>
 <body>
 	<h1>Hello world!</h1>
 	
-	<ul>
+	<ul class="menu">
 		<li><a href="${cpath }">Home</a></li>
 		<li><a href="${cpath }/ex01">ex01</a></li>
 		<li><a href="${cpath }/ex02">ex02</a></li>
-		<li><a href="${cpath }/ex03">ex03</a></li>
+		<li><a href="${cpath }/quiz">quiz</a></li>
 		<li><a href="${cpath }/ex04/test1">ex04</a></li>
 		<li><a href="${cpath }/ex05">ex05</a></li>
 		<li><a href="${cpath }/ex05/test1">ex06</a></li>
