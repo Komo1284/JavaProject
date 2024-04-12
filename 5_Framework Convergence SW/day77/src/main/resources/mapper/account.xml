@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "//mybatis.org/DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.itbank.model.AccountDAO">
+
+	<select id="selectAll" 
+		resultType="com.itbank.model.vo.AccountVO">
+		select * from account
+			order by idx desc
+	</select>
+	
+	<select id="selectOne" 
+		resultType="com.itbank.model.vo.AccountVO"
+		parameterType="com.itbank.model.vo.AccountVO">
+		
+		select * from account
+			where userid = #{userid}
+			and userpw = #{userpw}
+	</select>
+</mapper>
