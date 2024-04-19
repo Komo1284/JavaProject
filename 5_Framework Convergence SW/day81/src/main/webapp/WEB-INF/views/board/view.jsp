@@ -16,6 +16,22 @@
 			<button>삭제</button>
 		</a>
 	</c:if>
+	
+	<h5>댓글</h5>
+	
+	<form class="replyWrite" method="post">
+		<textarea name="contents" placeholder="바른말을 사용합시다"></textarea>
+		
+		<button>작성</button>
+	</form>
+	
+	<c:forEach var="reply" items="${list }">
+	<fieldset class="reply">
+		<p>${reply.nick } | ${reply.w_date }</p>
+		
+		<pre>${reply.contents }</pre>
+	</fieldset>
+	</c:forEach>
 
 </body>
 </html>

@@ -32,4 +32,12 @@
 				contents = #{contents}
 			where idx = #{idx}
 	</update>
+	
+	<insert id="addReply"
+			parameterType="com.itbank.model.vo.ReplyVO">
+	
+		insert into reply (b_idx, u_idx, contents)
+    		values (#{b_idx}, #{u_idx}, #{contents})
+	</insert>
+	
 </mapper>

@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
 import com.itbank.model.vo.BoardVO;
+import com.itbank.model.vo.ReplyVO;
 
 public interface BoardDAO {
 
@@ -36,4 +37,12 @@ public interface BoardDAO {
 	@Select("select count(*) as count from board_view " +  
 				"where ${type} like '%${search}%' ")
 	int searchBoard();
+
+	@Select("select * from reply_view order by idx desc")
+	List<ReplyVO> getReply();
+	
+	@Select("select * from reply_view where b_idx = #{idx} order by idx desc")
+	List<ReplyVO> getReplys(int idx);
+
+	int addReply(ReplyVO reply);
 }

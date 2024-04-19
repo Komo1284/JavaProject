@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.itbank.model.vo.AccountVO;
 import com.itbank.model.vo.BoardVO;
+import com.itbank.model.vo.ReplyVO;
 import com.itbank.service.BoardService;
 
 @Controller
@@ -64,9 +66,20 @@ public class BoardController {
 		ModelAndView mav = new ModelAndView();
 		
 		mav.addObject("row", bs.getboard(idx));
+		mav.addObject("list", bs.getreply(idx));
 		mav.setViewName("board/view");
 		
 		return mav;
+	}
+	
+	@PostMapping("/view/{b_idx}")
+	public String addReply(ReplyVO input, HttpSession session) {
+		AccountVO user = (AccountVO) session.getAttribute("user");
+		
+		input.setU_idx(user.getIdx());
+		bs.addReply(input);
+		
+		return "redirect:/board/view/" + input.getB_idx();
 	}
 	
 	@GetMapping("/update/{idx}")
@@ -85,5 +98,17 @@ public class BoardController {
 		bs.updateBoard(input);
 		
 		return "redirect:/board/list";
+	}
+	
+	@GetMapping("/reply")
+	public ModelAndView reply() {
+		
+		
+		ModelAndView mav = new ModelAndView();
+		
+		mav.addObject("list", bs.getReply());
+		mav.setViewName("board/reply");
+		
+		return mav;
 	}
 }

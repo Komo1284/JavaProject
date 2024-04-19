@@ -1,13 +1,16 @@
 package com.itbank.service;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.itbank.model.BoardDAO;
 import com.itbank.model.vo.BoardVO;
+import com.itbank.model.vo.ReplyVO;
 
 @Service
 public class BoardService {
@@ -66,6 +69,21 @@ public class BoardService {
 	public int updateBoard(BoardVO input) {
 		return dao.update(input);
 		
+	}
+
+	public List<ReplyVO> getReply() {
+
+		return dao.getReply();
+	}
+
+	public List<ReplyVO> getreply(int idx) {
+		
+		return dao.getReplys(idx);
+	}
+
+	public int addReply(ReplyVO input) {
+		
+		return dao.addReply(input);
 	}
 	
 	

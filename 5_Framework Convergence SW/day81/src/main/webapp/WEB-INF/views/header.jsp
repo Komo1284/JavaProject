@@ -39,6 +39,29 @@
 	.page > li {
 		margin: 0 10px;
 	}
+	.reply {
+		margin: 10px 0;
+		width: 500px;
+		box-sizing: border-box;
+	}
+	.replyWrite {
+		height: 60px;
+		width: 500px;
+		display: flex;
+		border: 1px solid #a0a0a0;
+		box-sizing: border-box:
+	}
+	.replyWrite > * {
+		border: 0;
+		outline: none;
+	}
+	.replyWrite textarea{
+		width: 90%;
+		resize: none;
+	}
+	.replyWrite > button {
+		width: 10%;
+	}
 </style>
 </head>
 <body>
@@ -51,6 +74,7 @@
 		<li><a href="${cpath }">ex01</a></li>
 		<li><a href="${cpath }/ex02">ex02</a></li>
 		<li><a href="${cpath }/board/list">board</a></li>
+		<li><a href="${cpath }/board/reply">reply</a></li>
 		<li><a href="${cpath }/account/list">account</a></li>
 		<li><a href="${cpath }/account/${login}">${login }</a></li>
 		<li><a href="${cpath }/account/${signUp}">${signUp }</a></li>
