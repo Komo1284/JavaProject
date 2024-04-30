@@ -2,19 +2,26 @@
     pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp" %>
 
-	<c:set var="update" value="${not empty row }"/>
-
-	<form method="POST" enctype="multipart/form-data">
-		<p><input name="title" value="${row.title }" placeholder="제목" required></p>
-		<p><input name="user_idx" value="${row.user.idx }" placeholder="유저idx" required></p>
-		<p><input name="file" type="file"></p>
-		<p><textarea name="contents" placeholder="내용">${row.contents }</textarea></p>
-		<c:if test="${not empty row }">
-			<input name="idx" type="hidden" value="${row.idx }">
-		</c:if>
-		
-		<button>전송</button>
-	</form>
+<form method="POST" enctype="multipart/form-data">
+	<table class="board">
+		<tr>
+			<td>
+				<input name="title" placeholder="제목">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<textarea name="contents"></textarea>
+			</td>
+		</tr>
+	</table>
+	
+	<p>첨부 파일</p>
+	<input name="file" type="file">
+	<input name="a_idx" type="hidden" value="${user.idx }">
+	
+	<p><button>작성</button></p>
+</form>
 
 </body>
 </html>

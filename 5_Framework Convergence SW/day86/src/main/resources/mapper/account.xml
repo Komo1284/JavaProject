@@ -10,5 +10,15 @@
 			where userid = #{userid}
 			and userpw = #{userpw}
 	</select>
+	
+	<update id="update"
+		parameterType="com.itbank.model.vo.AccountVO">
+		
+		update account
+			set
+				profile = #{profile},
+				userpw = #{userpw}
+			where idx = #{idx}
+	</update>
 
 </mapper>

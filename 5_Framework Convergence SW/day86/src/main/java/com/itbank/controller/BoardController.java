@@ -41,7 +41,7 @@ public class BoardController {
 	@PostMapping("/board/write")
 	public ModelAndView write(BoardVO input, MultipartFile file, HttpSession session) throws IOException {
 		
-		ModelAndView mav = new ModelAndView();
+		ModelAndView mav = new ModelAndView("message");
 		
 		int idx = bs.write(input, file, session);
 		

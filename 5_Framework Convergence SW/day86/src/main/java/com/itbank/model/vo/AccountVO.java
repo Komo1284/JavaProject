@@ -2,12 +2,35 @@ package com.itbank.model.vo;
 
 import java.sql.Timestamp;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class AccountVO {
-	private int idx;
+	private int idx, profile;
 	private String userid, userpw;
-	private String nick, email;
+	private String nick, email, image;
 	private Timestamp j_date;
+	private MultipartFile upload;
 	
+	
+	
+	public MultipartFile getUpload() {
+		return upload;
+	}
+	public void setUpload(MultipartFile upload) {
+		this.upload = upload;
+	}
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
+	}
+	public int getProfile() {
+		return profile;
+	}
+	public void setProfile(int profile) {
+		this.profile = profile;
+	}
 	public int getIdx() {
 		return idx;
 	}

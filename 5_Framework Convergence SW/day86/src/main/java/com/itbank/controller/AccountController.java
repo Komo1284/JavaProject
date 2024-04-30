@@ -1,5 +1,7 @@
 package com.itbank.controller;
 
+import java.io.IOException;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -69,4 +71,19 @@ public class AccountController {
 	@GetMapping("/myPage")
 	public void myPage() {}
 	
+	@PostMapping("/myPage")
+	public String myPage(AccountVO input, HttpSession session) throws IOException {
+		AccountVO user = (AccountVO) session.getAttribute("user");
+		input.setIdx(user.getIdx());
+		
+		as.profileUpdate(input);
+		
+		return "redirect:/account/logout";
+	}
+	
+	@GetMapping("delete")
+	public String delete(HttpSession session) throws IOException {
+		as.deleteAcc(session);
+		return "redirect:/account/logout";
+	}
 }
