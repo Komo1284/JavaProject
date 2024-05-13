@@ -1,0 +1,12 @@
+@charset "UTF-8";
+a {
+	color: inherit;
+}
+.menu {
+	list-style: none;
+	padding: 0;
+	display: flex;
+}
+.menu > li {
+	margin: 0 10px;
+}
