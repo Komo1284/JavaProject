@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<!-- replace="파일명 :: fragment명" -->
+	<div th:replace="piece :: header"></div>
+	
+	<!-- with : 태그 사이에 변수를 선언하고 사용할 수 있음 -->
+	<div th:with="name='홍길동'">
+		
+		<!-- text : 저장된 데이터를 태그의 요소에 출력 -->
+		<h4 th:text="${name}"></h4>
+	</div>
+	
+	<div th:replace="piece :: footer"></div>
+</body>
+</html>

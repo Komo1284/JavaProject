@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<header th:fragment="header">
+		<h1>day98</h1>
+		
+		<ul>
+			<li><a href="/">home</a></li>
+			<li><a href="/ex01">ex01</a></li>
+			<li><a href="/ex02">ex02</a></li>
+			<li><a href="/ex03">ex03</a></li>
+			<li><a href="/ex04">ex04</a></li>
+			<li><a href="/account">account</a></li>
+			<li><a href="/account/signUp">signUp</a></li>
+			<th:block th:if="${session.user == null}">
+				<li><a href="/account/login">login</a></li>
+			</th:block>
+			<th:block th:if="${session.user != null}">
+				<li><a href="/account/logout">logout</a></li>
+			</th:block>
+		</ul>
+		
+		<hr>
+	</header>
+	
+	<footer th:fragment="footer">
+		<hr>
+		<h4>(주)ITBANK 12월 오후반</h4>
+	</footer>
+
+</body>
+</html>

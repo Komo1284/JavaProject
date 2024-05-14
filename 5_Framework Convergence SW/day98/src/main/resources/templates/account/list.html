@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<header th:replace="~{piece :: header}"></header>
+	
+	<h4>Account 테이블</h4>
+	
+	<p th:if="${session.user != null}" th:text="${session.user.nick}"></p>
+	<hr>
+	
+	<table>
+		<thead>
+			<tr>
+				<th>No</th>
+				<th>아이디</th>
+				<th>닉네임</th>
+				<th>이메일</th>
+				<th>가입일</th>
+			</tr>
+		</thead>
+		<tbody>
+			<th:block th:each="row : ${list}">
+			<tr th:object="${row}">
+				<td th:text="*{idx}"></td>
+				<td th:text="*{userid}"></td>
+				<td th:text="*{nick}"></td>
+				<td th:text="*{email}"></td>
+				<td th:text="*{j_date}"></td>
+			</tr>
+			</th:block>
+		</tbody>
+	</table>
+	
+	<header th:replace="~{piece :: footer}"></header>
+	
+
+</body>
+</html>

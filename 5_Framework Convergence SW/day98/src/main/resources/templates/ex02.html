@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>ex02</title>
+<link href="/css/style.css" rel="stylesheet">
+</head>
+<body>
+	<header th:replace="~{piece :: header}"></header>
+	
+	<h4>ex02 Attribute 접근법</h4>
+	
+	<h5>1. 기본 방식</h5>
+	
+	<ul>
+		<li th:text="${per.name}"></li>
+		<li th:text="${per.age}"></li>
+		<li th:text="${per.height}"></li>
+	</ul>
+	
+	<h5>2. 하위 태그에 사용</h5>
+	
+	<ul th:object="${per}">
+		<li th:text="*{name}"></li>
+		<li th:text="*{age}"></li>
+		<li th:text="*{height}"></li>
+	</ul>
+	
+	<h5>3. 인라인 (다른 글자와 조합하기 좋다)</h5>
+	
+	<ul>
+		<li>이름 : [[${per.name}]]님</li>
+		<li>나이 : [[${per.age}]]세</li>
+		<li>신장 : [[${per.height}]]cm</li>
+	</ul>
+	
+	<header th:replace="~{piece :: footer}"></header>
+	
+
+</body>
+</html>

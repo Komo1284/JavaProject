@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>ex02</title>
+<link href="/css/style.css" rel="stylesheet">
+</head>
+<body>
+	<header th:replace="~{piece :: header}"></header>
+	
+	<h4>ex04 - 반복문</h4>
+
+	<div th:each="row : ${list}">
+		<p th:text="${row}"></p>
+	</div>	
+	
+	<!-- th:block은 화면에 출력되지 않는다 -->
+	<th:block th:each="row : ${list}">
+		<p th:text="${row}"></p>
+	</th:block>
+	
+	<!-- index 증가 형식의 반복문은 없음 -->
+	<!-- 따라서 아래와 같은 메서드를 활용해서 구현 -->
+	<th:block th:each="i : ${#numbers.sequence(1, 5)}">
+		<p>[[${i}]] : Hello Thymeleaf!!!</p>
+	</th:block>
+	
+	<header th:replace="~{piece :: footer}"></header>
+	
+
+</body>
+</html>

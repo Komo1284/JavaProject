@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<header th:replace="~{piece :: header}"></header>
+	
+	<h4 th:text="${subject}"></h4>
+	
+	<form method="post">
+		<p><input name="name" placeholder="이름"></p>
+		<p><input name="age" type="number" placeholder="나이"></p>
+		<p><button>전송</button></p>
+	</form>
+	
+	<header th:replace="~{piece :: footer}"></header>
+	
+
+</body>
+</html>

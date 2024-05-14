@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<header th:replace="~{piece :: header}"></header>
+	
+	<form method="post">
+		<p><input name="userid" placeholder="아이디"></p>
+		<p><input name="userpw" type="password" placeholder="비밀번호"></p>
+		<p><button>로그인</button></p>
+	</form>
+	
+	<header th:replace="~{piece :: footer}"></header>
+	
+
+</body>
+</html>
